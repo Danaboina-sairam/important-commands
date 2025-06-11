@@ -1,0 +1,228 @@
+Normal flow: we need to aware of other system request and response(data structure)
+
+1.topic
+       Record ------key, value pair-------key used send respective partition 
+2.partition
+
+Note : topic and partition created by Developer 
+3.offset
+4.partition(3)--------consumer group (4)
+5.partition(3)--------consumer group (2)
+6.offset commit(Automatically,manually)----------------restart or refresh
+7.leader( handle all the read,writes)-------------primary 
+8.follower(if leader getting down then follower will active otherwise follower in inactive state )---------replica
+9.In-Sync Replica's
+10.Producer Acknowledgement and types of acknowledgement 
+11.Kafks zookeeper 
+12.kraft
+13.schema registry 
+14.avro,json,protobuf schema
+15.segments
+16.broker
+17.poll for leader and follower ( I assuming)
+18.offset commit at consumer end(which end offset commit will happen)
+19.clusters
+20.producer configs
+21.consumer configs
+22.producer api
+23.consumer api
+24.kafka cli
+25.dead letter queue
+26.cluster(group of servers(basically used in production))
+27.producer just sent events but not notify
+28.consumer responsible for consuming whatever sent by producer(pull mechanism)
+29.fault tolarence: by using the log message
+30.kafka cluster vs zookeeper cluster
+31.event(record/message)
+32.kafka server equal to kafka broker(server=broker)
+33.controller(controller and broker not same)
+34.identify ip addresss of single server(by using bootstrap server)
+35.few of the servers from cluster identified as bootstrap server
+36.consumer group
+37.multiple cluster
+38.consumer lag
+39.kafka replays
+40.consumer offsets
+41.log retention
+42.push vs pull
+43.is connect to same host and port(localhost---------?)
+44.consumer bydefault consumes new messages(if we want old then we have commands)
+45.producer--->batch message at producer side--->Lag at consumer side
+46.how much message batch at producer side
+47.how much message consume at consumer side
+48.pull and poll both are same
+49.maximum 7 days stores(if max file size is reached then deletes old messages that time we are not gurrentee on old messages)
+50.multiple consumers vs consumer groups
+51.producer and multiple consumer consumes producer(without partition)
+52.producer and consumer group with multiple consumers but single consumer consume producer remaining all are ideal state(without partition)
+53.producer and consumer group with multiple con-----------------------------------------------------------------
+54.partition key used to sent repective partition(partition key on that get hashcode value) 
+   after that 1 instance consumer consume 1 partition 
+   another instance consumer consume 1 partition
+55.partition rebalancing
+
+3 partitions-------1 consumer
+
+3 partitions-------2 consumer
+
+3 partitions-------3 consumer
+
+3 partitions-------4 consumer
+
+
+note: 1 partition assgined only 1 consumer(example withdraw and deposit in the same partition of consumer)--------------
+doubt same topic is consumed by different consumer
+
+
+note:only group for consumer but not for producer
+
+
+zookeeper 
+
+1.cluster management
+2.leader election
+3.configuration management:- kafka server,ip address,port numbers,replication factor,topic configuration
+
+
+kafka play ground with kraft
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+kafka_2.13-3.9.0
+
+zookeeper
+---------
+
+PORT:2181
+
+.\bin\windows\zookeeper-server-start.bat config\zookeeper.properties  
+
+kafka server start
+------------------
+
+PORT:9092
+
+.\bin\windows\kafka-server-start.bat config\server.properties
+
+create topic
+------------
+
+.\bin\windows\kafka-topics.bat --create --topic quickstart-events --bootstrap-server localhost:9092
+
+describe topic
+--------------
+
+.\bin\windows\kafka-topics.bat --describe --topic quickstart-events --bootstrap-server localhost:9092
+
+delete topic
+------------
+
+.\bin\windows\kafka-topics --delete --topic quickstart-events --bootstrap-server localhost:9092
+
+list topics
+-----------
+
+.\bin\windows\kafka-topics.bat --bootstrap-server localhost:9092 --list
+
+producer console
+----------------
+
+.\bin\windows\kafka-console-producer.bat --topic quickstart-events --bootstrap-server localhost:9092
+
+consumer console
+----------------
+
+.\bin\windows\kafka-console-consumer.bat --topic quickstart-events --from-beginning --bootstrap-server localhost:9092
+
+
+
+
+
+
+
+.\bin\windows\kafka-storage.bat random-uuid
+
+
+.\bin\windows\kafka-storage.bat format --standalone -t $KAFKA_CLUSTER_ID -c config/kraft/reconfig-server.properties
+
+
+.\bin\windows\kafka-storage.bat format --standalone -t vy54OpzlTIuCjuR8bKvOyg -c config/kraft/reconfig-server.properties
+
+
+.\bin\windows\kafka-storage.bat format --standalone -t vy54OpzlTIuCjuR8bKvOyg -c config/kraft/server.properties
+
+
+.\bin\windows\kafka-server-start.bat config/kraft/reconfig-server.properties
+
+
+.\bin\windows\kafka-server-start.bat config/kraft/server.properties
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#Kafka Topic Commands:
+
+kafka-topics.sh --bootstrap-server localhost:9092 --topic hello-world --create
+
+kafka-topics.sh --bootstrap-server localhost:9092 --topic order-events --create
+
+kafka-topics.sh --bootstrap-server localhost:9092 --list
+
+kafka-topics.sh --bootstrap-server localhost:9092 --topic order-events --describe
+
+#Kafka Topic Commands with Partitions:
+
+kafka-topics.sh --bootstrap-server localhost:9092 --topic order-events --create --partitions 2
+
+#Kafka Producer Commands:
+
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic hello-world
+
+#Kafka Consumer Commands:
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic hello-world
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic hello-world --from-beginning
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic hello-world --property print.offset=true
+
+#Kafka Producer Commands with Partition Key:
+
+kafka-console-producer.sh --bootstrap-server localhost:9092 --topic order-events --property parse.key=true --property key.separator=:
+
+#Kafka Consumer Commands with Consumer Group:
+
+kafka-console-consumer.sh --bootstrap-server localhost:9092 --topic order-events --property print.key=true --group payment-service 
+
+#For Resetting the Consumer Offsets:
+Dryrun:  kafka-consumer-groups.sh —-bootstrap-server localhost:9092 —-group cg —-topic order-events —-reset-offsets —-shift-by -3 —-dry-run
+Execute: kafka-consumer-groups.sh —-bootstrap-server localhost:9092 —-group cg —-topic order-events —-reset-offsets —-shift-by -3 —-execute
+
+#Deleting Consumer Groups:
+kafka-consumer-groups.sh --bootstrap-server localhost:9092 --delete --group my-consumer-group
