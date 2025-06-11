@@ -1,2 +1,0 @@
-# kafka-commands
-kafka-commands
