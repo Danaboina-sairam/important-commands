@@ -1,0 +1,38 @@
+#1
+
+entity------------->id,name,email are properties
+
+id is primary key remaining normal properties
+
+id---------->controlled by jpa 
+
+name,email-->controlled by user
+
+
+note:- need to create setter and getter for all remaining fields(jpa controlled fields only getter)
+
+
+#2
+
+
+SELECT *FROM INFORMATION_SCHEMA.CONSTRAINT_COLUMN_USAGE
+
+SELECT *FROM INFORMATION_SCHEMA.INDEX_COLUMNS
+
+#3
+
+without column annotation:-exactly same as properties with capital letters
+
+with column annotation:-exactly same as column annotation with capital letters(column annotation name high priority)
+
+
+#4
+
+true,false,null ----------------->all are small letters
+
+
+#5
+
+Annotations:- naming conventions like class name
+
+attribute key: naming conventions like method name
