@@ -25,6 +25,7 @@ without column annotation:-exactly same as properties with capital letters
 
 with column annotation:-exactly same as column annotation with capital letters(column annotation name high priority)
 
+Note:- same for Table annotation also(without table and with table annotation)
 
 #4
 
@@ -36,3 +37,12 @@ true,false,null ----------------->all are small letters
 Annotations:- naming conventions like class name
 
 attribute key: naming conventions like method name
+
+
+#6
+
+Errr occured in code 
+
+normal run:- just immediately throwing "500 internal server error"
+
+Debug run:- here not throwing immediately so here we can find out root cause
