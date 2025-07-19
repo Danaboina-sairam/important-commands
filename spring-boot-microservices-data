@@ -488,6 +488,13 @@ SPRING BOOT PROJECT CONVENTION
 
 
 
+spring.jpa.hibernate.ddl-auto=create-drop
+
+
+Note:-1.update 2.none(production use only none)
+
+
+
 
 
 
