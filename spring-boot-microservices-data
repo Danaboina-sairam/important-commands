@@ -496,6 +496,234 @@ Note:-1.update 2.none(production use only none)
 
 
 
+WebClient webClient;(whatever created in config class that is used in required class but access decrease from high to low)
+-------------------
+
+Microservice Communication(Called Response DTO also need to place at calling side)
+--------------------------
+
+Need to implement Global Exception Handler for order-service
+------------------------------------------------------------
+
+Service Discovery
+-----------------
+
+Eureka Server
+-------------
+
+1.dependency
+------------
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-eureka-server</artifactId>
+</dependency>
+
+2.annotation
+------------
+@EnableEurekaServer
+
+3.properties
+------------
+
+eureka.instance.hostname=localhost
+
+eureka.client.register-with-eureka=false
+
+eureka.client.fetch-registry=false
+
+eureka.client.serviceUrl.defaultZone=http://localhost:8761/eureka/
+
+spring.application.name=discovery-server
+
+
+
+Eureka Client
+-------------
+
+1.dependency
+------------
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+
+2.annotation
+------------
+
+@EnableEurekaClient
+
+3.properties
+------------
+
+eureka.client.serviceUrl.defaultZone=http://eureka:password@localhost:8761/eureka
+
+spring.application.name=product-service
+
+
+STATUS OF SERVICE DISCOVERY
+---------------------------
+
+http://localhost:8761/
+
+Multiple Servers
+----------------
+
+edit configuration and env variables
+
+http://inventory-service/api/inventory
+
+Types of client side load balancing
+-----------------------------------
+
+1.config(Service Discovery)
+--------
+
+@Bean
+@LoadBalanced
+public WebClient.Builder webClientBuilder() {
+	return WebClient.builder();
+}
+
+2.URL(API GATEWAY)
+-----
+
+## Product Service Route
+spring.cloud.gateway.routes[0].id=product-service
+spring.cloud.gateway.routes[0].uri=lb://product-service
+spring.cloud.gateway.routes[0].predicates[0]=Path=/api/product
+
+
+API GATEWAY(Request went on api gateway or not identify based on the port in local)--------->(base uri along with port)
+-----------
+
+1.dependency
+------------
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-gateway</artifactId>
+</dependency>
+
+<dependency>
+	<groupId>org.springframework.cloud</groupId>
+	<artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
+</dependency>
+
+2.annotation
+------------
+
+@EnableDiscoveryClient
+
+@EnableEurekaServer
+
+3.properties
+------------
+
+spring.application.name=api-gateway
+eureka.client.serviceUrl.defaultZone=http://eureka:password@localhost:8761/eureka
+app.eureka-server=localhost
+
+## Product Service Route
+spring.cloud.gateway.routes[0].id=product-service
+spring.cloud.gateway.routes[0].uri=lb://product-service
+spring.cloud.gateway.routes[0].predicates[0]=Path=/api/product
+
+NOTE:- how multiple server in service discovery server mapping in api gateway
+
+## Discover Server Route
+spring.cloud.gateway.routes[2].id=discovery-server
+spring.cloud.gateway.routes[2].uri=http://eureka:password@localhost:8761
+spring.cloud.gateway.routes[2].predicates[0]=Path=/eureka/web
+spring.cloud.gateway.routes[2].filters[0]=SetPath=/
+
+NOTE:-  
+
+1.change discovery server path after change route default path by using SetPath=/
+
+2.single server lb not working that's why using again http in URI
+
+
+
+## Discover Server Static Resources Route
+spring.cloud.gateway.routes[3].id=discovery-server-static
+spring.cloud.gateway.routes[3].uri=http://eureka:password@localhost:8761
+spring.cloud.gateway.routes[3].predicates[0]=Path=/eureka/**
+
+NOTE:-  
+
+1.above after routing getting without static resource webpage but we need with static resouce page for that we are using Path=/eureka/**
+
+2.single server lb not working that's why using again http in URI
+
+
+NOTE
+----
+
+2.URI:- it is a base uri
+
+3.predicates:- it is a endpoint uri
+
+
+
+MAVEN
+-----
+
+mvn clean      ----->  Deletes the /target directory (cleans previous build artifacts)
+
+mvn validate   ----->  Validates the project structure and configuration (pom.xml)
+
+mvn compile    ----->  .class files generated from .java files
+
+mvn test       ----->  Unit tests are compiled and run (using JUnit/TestNG)
+
+mvn package    ----->  .jar/.war file generated in target/
+
+mvn verify     ----->  Runs integration tests, checks packaged artifact
+
+mvn install    ----->  .jar placed into local repository (~/.m2)
+
+mvn site       ----->  Generates project documentation (in target/site) using plugins like maven-site-plugin
+
+mvn deploy     ----->  .jar pushed to remote Maven repository (like Nexus/Artifactory)
+
+
+<project>
+    <modelVersion>...</modelVersion>
+    <groupId>...</groupId>
+    <artifactId>...</artifactId>
+    <version>...</version>
+    <packaging>...</packaging>
+    <name>...</name>
+    <description>...</description>
+    <url>...</url>
+    <parent>...</parent>
+    <modules>...</modules>
+    <properties>...</properties>
+    <dependencies>...</dependencies>
+    <dependencyManagement>...</dependencyManagement>
+    <build>...</build>
+    <reporting>...</reporting>
+    <profiles>...</profiles>
+    <repositories>...</repositories>
+    <pluginRepositories>...</pluginRepositories>
+    <distributionManagement>...</distributionManagement>
+    <scm>...</scm>
+    <ciManagement>...</ciManagement>
+    <issueManagement>...</issueManagement>
+    <developers>...</developers>
+    <contributors>...</contributors>
+    <licenses>...</licenses>
+    <organization>...</organization>
+</project>
+
+
+
+
+
+
+
+
 
 
 
