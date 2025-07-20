@@ -505,6 +505,8 @@ Microservice Communication(Called Response DTO also need to place at calling sid
 Need to implement Global Exception Handler for order-service
 ------------------------------------------------------------
 
+
+
 Service Discovery
 -----------------
 
@@ -663,6 +665,12 @@ NOTE
 2.URI:- it is a base uri
 
 3.predicates:- it is a endpoint uri
+
+
+ORDER OF COMPONENTS
+-------------------
+
+1.API GATEWAY(Client side Load balancer) 2.SERVICE DISCOVERY(Client side Load balancer) 3.Load balancer(Client side custom load balancer)
 
 
 
