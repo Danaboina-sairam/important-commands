@@ -1,0 +1,60 @@
+
+MONGO DB COMPASS
+----------------
+
+installation
+------------
+
+Run service as Network Service user
+
+path
+----
+
+C:\Program Files\MongoDB\Server\8.0\bin
+
+
+Create folder
+-------------
+
+C:/data/db/ 
+
+
+command prompt
+--------------
+
+mongod
+
+Mongo db compass UI
+-------------------
+
+refresh
+
+
+ORACLE DB
+---------
+
+sqlplus/nolog
+
+
+conn /as sysdba
+
+ALTER USER system IDENTIFIED BY system;
+
+
+NOTE:- Oracle database and Oracle SQL developer same username and password
+
+
+ALTER USER 'root'@'localhost' IDENTIFIED BY 'mysql';
+
+
+
+
+
+
+SELECT * FROM T_ORDER_LINE_ITEMS
+
+SELECT * FROM T_ORDERS
+
+SELECT * FROM T_ORDERS_ORDER_LINE_ITEMS_LIST
+
+SELECT * FROM T_INVENTORY
