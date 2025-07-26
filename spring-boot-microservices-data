@@ -548,6 +548,82 @@ mvn deploy     ----->  .jar pushed to remote Maven repository (like Nexus/Artifa
 
 
 
+Rate limiter->Bulk head->timeout->Circuit breaker->Retry 
+
+
+Rate limiter
+------------
+
+fixed window rate limiter
+-------------------------
+
+1.limit(request)
+2.window(time)
+
+Adavantage
+----------
+1.specified request processing any time in window
+
+disadvantage
+------------
+1.first window last second 5 request comming and next window first second comming 5 request comming that traffic is increasing
+
+
+sliding log(accept request ,storing exact timestamp)
+-----------
+
+1.limit(request)
+2.window(time)
+
+
+disadvantage
+------------
+
+1.extra memory for storing time stamp
+2.sliding log request proccess then need to clean timestamp
+
+
+sliding window counter
+----------------------
+
+sliding window counter with sub window
+--------------------------------------
+
+1.window 
+2.sub window
+
+sliding window counter with weighted window
+-------------------------------------------
+
+
+combination of fixed window and sliding log
+
+
+
+
+
+multi threading 
+
+aop(this is used in scenarios rate limiter,bulk head,time limiter)
+
+supplyAsync()----->submit the task to thread pool
+
+completedFuture()------>not submit the task to thread pool(just wrap the response)
+
+
+bulk head types
+---------------
+
+1.semaphore
+
+2.thread pool
+
+NOTE:- all resilience patterns applied for rest calls
+
+
+
+
+
 
 
 
