@@ -548,6 +548,79 @@ mvn deploy     ----->  .jar pushed to remote Maven repository (like Nexus/Artifa
 
 
 
+order-service(OrderPlacedEvent)
+
+notification-service(OrderPlacedEvent)
+
+removing duplication of class in between microservices using avro schema registry
+
+
+dependencies of avro
+--------------------
+
+avro file serialize by using below dependency
+
+<dependency>
+  <groupId>io.confluent</groupId>
+  <artifactId>kafka-avro-serializer</artifactId>
+  <version>7.5.1</version> <!-- or match your Confluent Platform version -->
+</dependency>
+
+schema register by using below dependencies
+
+<dependency>
+    <groupId>io.confluent</groupId>
+    <artifactId>kafka-schema-registry-client</artifactId>
+    <version>7.5.1</version>
+</dependency>
+
+enable avro for application
+
+<dependency>
+  <groupId>org.apache.avro</groupId>
+  <artifactId>avro</artifactId>
+  <version>1.11.1</version> <!-- or latest -->
+</dependency>
+
+AVRO maven plugin
+-----------------
+
+1.need to specify source location--------->that is in src/main/resources/avro folder of application
+
+2.need to specify destination location-----> that is in src/main/java folder of application
+
+<plugin>
+  <groupId>org.apache.avro</groupId>
+  <artifactId>avro-maven-plugin</artifactId>
+  <version>1.11.1</version>
+  <executions>
+    <execution>
+      <phase>generate-sources</phase>
+      <goals>
+        <goal>schema</goal>
+      </goals>
+      <configuration>
+        <sourceDirectory>${project.basedir}/src/main/avro</sourceDirectory>
+        <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
+      </configuration>
+    </execution>
+  </executions>
+</plugin>
+
+
+properties
+----------
+
+
+key-------->StringSerializer
+
+value------>JsonSerializer
+
+
+
+
+
+
 Rate limiter->Bulk head->timeout->Circuit breaker->Retry 
 
 
