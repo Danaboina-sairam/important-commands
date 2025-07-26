@@ -1,0 +1,138 @@
+CMD
+---
+minikube start
+
+minikube status
+
+vscode(front end)
+------
+
+docker images | grep angular-app
+
+clear
+
+docker images
+
+clear
+
+eval $(minikube docker-env)
+
+clear
+
+kubectl apply -f deployment.yml
+
+clear
+
+->angular8-crud-demo(package)
+
+docker images
+
+docker build -t angular-app
+
+docker images | grep angular
+
+kubectl apply -f deployment.yml
+
+kubectl get deployments
+
+kubectl get services
+
+kubectl get pods
+
+
+CMD
+---
+echo -n 'testuser' | base64
+
+echo -n 'testuser@123' | base64
+
+
+
+
+Intellij(Backend)
+--------
+
+->kubernates%
+
+eval $(minikube docker-env)
+
+clear
+
+docker build -t springboot-k8s-deployment:1.0 .
+
+clear
+
+->kubernates%
+
+cd..
+
+->springboot-crud-api%
+
+clear
+
+ls
+
+docker build -t springboot-k8s-deployment:1.0 .              -------->only use this path
+
+clear
+
+cd kubernates
+
+ls
+
+clear
+
+creation
+--------
+
+kubectl apply -f mysqldb-root-credential.yml
+
+kubectl apply -f mysqldb-credential.yml
+
+kubectl apply -f mysql-configmap.yml
+
+kubectl apply -f mysql-deployment.yml
+
+get or show
+-----------
+
+kubectl get secrets
+
+kubectl get configmap
+
+kubectl get deployments
+
+kubectl get services
+
+kubectl get pvc
+
+kubectl get pods
+
+logs
+----
+kubectl logs -f mysql-656c777d597-ml5b5
+
+note:- for exit logs,use ctrl+c
+----
+
+microservices
+-------------
+
+kubectl apply -f deployment.yml
+
+run service(springboot application)
+-----------
+
+minikube service springboot-k8s-mysql
+
+
+kubectl get deployments
+
+kubectl get services
+
+kubectl get pods
+
+
+
+
+
