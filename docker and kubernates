@@ -136,3 +136,207 @@ kubectl get pods
 
 
 
+eclipse JDK | Open JDK
+----------------------
+
+docker vs docker compose
+
+docker vs multi stage builds
+
+
+MANUAL FILES FOR IMAGE GENERATE
+-------------------------------
+
+single build
+------------
+
+1.docker build -t apigateway-dockerfile .
+
+NOTE:-
+
+--->giving user-defined name apigateway-dockerfile
+
+--->current directory denotes by dot(.)
+
+2.docker images
+
+
+multi stage build
+-----------------
+
+3.docker build -t apigateway-layered -f Dockerfile.layered .
+
+NOTE:-
+--->giving user-defined name apigateway-layered
+
+--->actual file name Dockerfile.layered
+
+--->current directory denotes by dot(.)
+
+4.docker images
+
+AUTOMATIC(which  one used in our projects?)
+---------
+
+how to build docker images without docker files
+-----------------------------------------------
+
+plugins-->jib-->container-->spring boot application code
+
+
+what does "JIB" do?
+
+
+JIB build flow:
+--------------
+
+project----------------->container image(registry)
+
+
+ADD IN ROOT PATH(IMP)
+----------------
+
+pom.xml (for all the projects)
+
+--->add plug-in for jib-maven-plugin
+
+plugins-->jib-->jib:build
+
+jib:build
+---------
+
+1.build image
+
+2.push into docker hub
+
+
+MAIN REPOSITORY
+---------------
+
+5.mvn clean compile jib:build
+
+.m2(settings.xml)
+---
+
+<servers>
+	<server>
+		<id>registry-hub.docker.com</id>
+		<username>saiupadhyayula007</username>
+		<password>test</password>
+	</server>
+</servers>
+
+6.docker images
+
+
+docker compose
+
+data.sql(src/resource/data.sql)
+
+7.docker compose up -d
+
+NOTE:- daemon mode denotes by -d
+
+clear
+
+8.docker logs -f broker
+
+9.docker logs -f order-service
+
+10.docker logs -f api-gateway
+
+CHANGE PORT FOR KEYCLOAK
+------------------------
+
+c:\windows\system32\driver\etc\hosts
+
+NOTE:-
+
+1.hosts---->file
+
+11.docker logs -f order-service
+
+
+12.docker logs -f notification-service
+
+
+
+HOW TO BUILD DOCKER IMAGES WITHOUT DOCKER FILES(Default spring boot)
+-----------------------------------------------
+
+plugins-->spring-boot-->spring-boot:build-image 
+
+NOTE:- 
+
+1.no need to create anything
+
+2.packetobuildpacks-->spring boot default plugin
+
+3.packetobuildpacks-->builder-jammy-base-->spring boot default plugin
+
+
+
+PUSH TO DOCKER HUB
+------------------
+
+<image>
+<name>saiupadhyayula007/new-${Project.artifactId}</name>
+<builder>dashaun/builder:tiny</builder>
+<publish>true</publish>
+</image>
+
+<docker>
+<publishRegistry></publishRegistry>
+</docker>
+
+DOCKER IMAGE--->DOCKER HUB--->DOCKER COMPOSE--->CONTAINER-->5431:5432
+
+NOTE:- localhost port : container port
+
+
+
+container
+
+expose--->port--->localhost port
+
+depend on
+
+environ
+
+volume(local db / container db)
+
+
+KUBERNATES(KIND)
+----------
+
+config.yml
+----------
+
+cluster--->nodes-->container port
+
+CLUSTER
+-------
+windows-->terminal-->commands
+
+mac-->shell script-->cluster
+
+
+BOTH ARE IN K8S/KIND
+--------------------
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
