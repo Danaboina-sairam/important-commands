@@ -1,0 +1,78 @@
+multi threading
+
+JDK----->compiler
+
+JVM----->executor
+
+
+NOTE:- in multi threading, we are focusing on JVM only
+
+Process :- process is nothing but program in excution(Note:- excution only done by JVM only)
+
+Thread :- thread is nothing but sequence of instructions set in process
+
+
+JVM(heap,stack,code segment,data segment,registers,program counters)
+
+
+
+Heap,Code segment,Data segment common for all register,stacks,program counter and threads
+
+
+Register ,stacks,program counters specific to thread only
+
+
+
+1.user defined thread vs predefined thread using executor framework
+
+2.user defined thread------------->not reuseable(more context switching,less processing time)
+
+3.predefined thread using executor framework----------->reuseable(less context switching,more processing time)----------->can we use 2 cpu in single machine?
+how intercommunication
+
+4.completeablefuture async vs kafka async communication
+
+imp
+---
+
+5.minimum thread number vs maximum thread number
+
+6.minimum thread are busy then place in queue otherwise dont use queue(assume queue size 5 only)
+
+7.if queue size also full then only enable maximum thread number for new task(note:-dont use maximum thread number for old task whatever in the queue)
+
+8.if maximum thread number also full then only rejected the task 
+
+note:- use maximum thread number for after queue full whatever after queue full
+
+
+Daemon thread vs user thread
+----------------------------
+
+1.Daemon thread uses setter method that used to set flag then only act as Daemon thread
+
+2.User thread not uses setter method that is called user thread
+
+RejectedExecutionHandler
+------------------------
+
+1.new ThreadPoolExecutor.AbortPolicy(just return error)
+
+2.new ThreadPoolExecutor.CallerRunsPolicy(when calling then rejected------------>but not at called side)
+
+3.new ThreadPoolExecutor.DiscardPolicy(silently rejected without throwing error)
+
+4.new ThreadPoolExecutor.DiscardOldestPolicy
+
+
+life cycle of thread pool executor
+
+1.running
+2.shutdown(accepting existing pipeline in progress tasks but not new tasks)
+3.stop-------->force shutdown(not accepting existing pipeline in progress tasks and also new tasks)
+4.terminated
+
+Blocking queue
+--------------
+1.array(static)
+2.linkedlist(dynamic)
