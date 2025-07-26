@@ -370,6 +370,83 @@ mysql.yaml
 
 
 
+docker and kubernates
+
+front end(service-nodeport)--->backend(service-nodeport)--->database(service-nodeport)
+
+
+
+USERNAME ans PASSWORD of DATABASE(secret files)
+
+URL(hostname and database name) of DATABASE(config map file)
+
+
+NOTE:- do we need to create root and database password for all
+
+NOTE:-Additionally Persistent Volume and Persistent Volume Claim for Database
+
+env key used to map properties for database(In Deployment File)
+---------------------------------------------------------------
+
+1.secretKeyRef(Username and Password)
+
+2.configMapKeyRef(URL---->hostname and database name)
+
+
+
+Microservice(in microservice DEPLOYMENT also provide ENV properties of DATABASE)
+
+Database(in database DEPLOYMENT also provide ENV properties of DATABASE)
+
+
+
+BACKEND MICROSERVICE
+--------------------
+
+deployment->service
+
+BACKEND DATABASE
+----------------
+
+secrets->config map->persistent volume claims->deployment->service
+
+
+FRONTEND
+--------
+
+deployment->service
+
+
+
+
+
+nodeport->load balancer->cluster ip(check port ,targer port,protocol different for 3 types)
+
+
+
+load balancer(AWS,GKS)
+
+
+external acccess
+----------------
+
+nodeport(first)
+
+port(second)
+
+targetPort(third)
+
+
+
+1.nodeport(dev/test)--------->external access
+
+2.load balancer---------->external access
+
+3.cluster ip(production)----------->don't have direct external access(we provide access by using Ingress controller | also called as path based routing)
+
+
+
+
 
 
 
