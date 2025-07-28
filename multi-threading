@@ -5,22 +5,186 @@ JDK----->compiler
 JVM----->executor
 
 
-NOTE:- in multi threading, we are focusing on JVM only
+NOTE:- 
+
+1.in multi threading, we are focusing on JVM only
+
+2.JVM will create process
+
+Hierachy
+--------
+
+CPU->JVM->PROCESS->THREADS
 
 Process :- process is nothing but program in excution(Note:- excution only done by JVM only)
 
-Thread :- thread is nothing but sequence of instructions set in process
+Thread :- thread is nothing but sequence of instructions set in process(threads run independent of cpu)
+
+NOTE:-
+----
+1.there is no context switching between thread pool threads
+2.there is a context switching between user defined threads
+3.each task taking one thread from thread pool to process the task,after process the task then again release back to thread pool
+4.completeable future submit tasks to thread pool threads 
 
 
 JVM(heap,stack,code segment,data segment,registers,program counters)
 
+IMP
+---
+
+1.Heap,Code segment,Data segment common for all register,stacks,program counter and threads
 
 
-Heap,Code segment,Data segment common for all register,stacks,program counter and threads
+2.Register ,stacks,program counters specific to thread only
 
 
-Register ,stacks,program counters specific to thread only
+COMPILE TIME
+------------
 
+Bytecode
+
+RUN TIME
+--------
+
+1.Process
+2.Jvm instace
+3.Interpreter/JIT Compiler
+4.machine code
+
+QUESTIONS
+---------
+1.who decide how much over all heap memory allocated for jvm?
+2.who decide whatever heap memory we have that is allocated to process?
+
+CODE SEGMENT
+------------
+1.it contains machine code of the java program
+2.machine code is generate after execution of bytecode
+3.read only
+4.all threads with in the same process,share the same code segment.
+
+DATA SEGMENT
+------------
+1.contains the GLOBAL and STATIC variables(whatever global variable in code segment).
+2.all threads with in the same process,share the same data segment.
+3.Threads can read and modify the same data.
+4.synchronization is required between multiple threads
+      ->if synchronization not there,then data is not consistent.
+      ->if synchronization not there,then multiple threads use data segment so data is not consistent.
+
+
+HEAP
+----
+1.Objects created at runtime using "new" keyword are allocated in the heap.
+  	->threads internall create new objects that is allocated memory in the heap
+2.Heap is shared among all the threads of the same process(but not with in process)
+	->let say in process1,x8000 heap memory pointing to same location in 
+	  physical memory,same x8000 point to different locat‭ion for process2)
+3.Threads can read and modify the heap data.
+4.synchronization is required between multiple threads.
+
+STACK
+-----
+1.each thread has its own stack.
+2.it manages,method calls,local variables.
+
+REGISTER
+--------
+1.when JIT(just in time compiles converts the Bytecode into native machine code
+  ->it uses register to optimized the generated machine code.
+2.Also helps in context switching.
+3.each thread has its own register.
+
+COUNTER
+-------
+1.Also know as Program Counter,it points to the instruction which is getting executed.
+2.Increments its counter after successfully execution of the instruction.
+
+Execution order
+---------------
+Code segment->Counter->Thread
+
+NOTE:- All these are managed by JVM
+
+
+SCENARIOS
+---------
+
+CPU Cores 2 , Threads 4---------->in this case context switching is need
+
+CPU Cores 2 , Threads 2---------->in this case context switching is no need
+
+CPU Cores 4 , Threads 2---------->in this case context switching is no need
+
+CONTEXT SWITCH TIME
+-------------------
+CPU and Register take key role
+
+Multi tasking vs Multi threading
+--------------------------------
+
+Process 1 and Process 2------------->multi tasking
+
+Thread 1 ,Thread 2 and Thread 3(All threads are in Process 1 only)---------->multi threading
+
+NOTE:-
+
+1.multi tasking do not share the resource
+2.multi threading share the resource
+
+
+
+Multi threading
+---------------
+1.allows a program to perform multiple tasks or operation at the same time
+2.multiple threads share the same resource such as memory space but still can
+  perform task independently
+
+Benefits
+--------
+1.improved performance by task parallelism
+2.Responsiveness
+3.Resource sharing
+
+Challenges
+----------
+1.Concurrency issue like deadlock,data inconsistency etc.
+2.Synchronized overhead.
+3.Testing and Debugging is difficult.
+
+
+
+
+
+
+
+
+Executor(I)
+--------
+
+single method in parent interface
+
+ExecutorService(I)
+---------------
+
+multiple methods in child interface of Excutor(I)
+
+
+ThreadPoolExcutor(C)
+-----------------
+this is the concreate class of ExecutorService(I)
+
+
+public ThreadPoolExecutor(
+    int corePoolSize,
+    int maximumPoolSize,
+    long keepAliveTime,
+    TimeUnit unit,
+    BlockingQueue<Runnable> workQueue,
+    ThreadFactory threadFactory,
+    RejectedExecutionHandler handler
+)
 
 
 1.user defined thread vs predefined thread using executor framework
@@ -43,7 +207,38 @@ imp
 
 8.if maximum thread number also full then only rejected the task 
 
-note:- use maximum thread number for after queue full whatever after queue full
+note:- 
+
+1.use maximum thread number after queue full
+
+2.initially minimum thread number and queue size is the matter after that only went to maximum thread number
+
+minimum thread number(avarage time)
+
+queue size(peak time)
+
+maximum thread number(rare cases if minimum thread number and queue size full)
+
+3.keepAliveTime used when the allowCoreThreadTimeOut property set to true
+
+
+IMP
+---
+
+Generally,the ThreadPool min and max size are depend on various factors
+
+-CPU Cores
+-JVM Memory
+-Task Nature(CPU Intensive or I/O Intensive)
+-Concurrency Requirement(Want high or medium or low
+-Memory Required to process a request
+-Throughput etc.
+
+
+Max No of thread=No.of CPU Core * (1+Request waiting time/processing time)
+
+Max no of active tasks=Task Arrival rate * Task execution time
+
 
 
 Daemon thread vs user thread
@@ -66,59 +261,50 @@ RejectedExecutionHandler
 
 
 life cycle of thread pool executor
+----------------------------------
 
-1.running
-2.shutdown(accepting existing pipeline in progress tasks but not new tasks)
-3.stop-------->force shutdown(not accepting existing pipeline in progress tasks and also new tasks)
+1.running(accepting new tasks by using submit task while thread pool executor running)
+2.shutdown
+----------
+
+----->accepting existing pipeline in progress tasks but not new tasks)
+
+----->whatever accepting existing pipeline in progress tasks but not new tasks(shutdown) after that release threads to thread pool
+
+3.stop
+------
+
+----->force shutdown(not accepting existing pipeline in progress tasks and also new tasks)
+
+----->whatever not accepting existing pipeline in progress tasks and also new tasks(stop) after that force shutdown and then release threads to thread pool
+
 4.terminated
+------------
+
+terminated method used to check shutdown and stop cases threads released to thread pool executor or not
+		
 
 Blocking queue
 --------------
-1.array(static)
-2.linkedlist(dynamic)
+1.array(static):- bounded queue
+2.linkedlist(dynamic):- unbounded queue
+
+ThreadFactory
+-------------
+1.thread name 
+2.thread priority
+3.thread daemon flag
 
 
-ThreadPoolExcutor example
--------------------------
+Future
+------
+submit()
 
-import java.util.concurrent.*;
+CompleteableFuture
+------------------
 
-class Main {
-    public static void main(String[] args) {
-        ThreadPoolExecutor executor=new ThreadPoolExecutor(2,4,10,
-                TimeUnit.MINUTES,new ArrayBlockingQueue<>(2),
-                new CustomThreadFactory(),new CustomRejectHandler());
-        executor.allowsCoreThreadTimeOut();
-
-        for(int i=1;i<=4;i++){
-            executor.submit(()->{
-                try{
-                    Thread.sleep(5000);
-                }catch (Exception e){
-                    //handle exception here
-                }
-                System.out.println("Task processed by:"+Thread.currentThread().getName());
-            });
-
-            executor.shutdown();
-        }
-    }
-
-}
-
-class CustomThreadFactory implements ThreadFactory {
-    @Override
-    public Thread newThread(Runnable r){
-        Thread th=new Thread(r);
-        th.setPriority(Thread.NORM_PRIORITY);
-        th.setDaemon(false);
-        return th;
-    }
-}
-
-class CustomRejectHandler implements RejectedExecutionHandler {
-    @Override
-    public void rejectedExecution(Runnable r, ThreadPoolExecutor executor) {
-        System.out.println("Task rejected: "+r.toString());
-    }
-}
+1.supplyAsync()
+2.thenApply() and thenApplyAsync()---------->no ordering
+3.thenCompose() and thenComposeAsync()---------->ordering
+4.thenAccept() and thenAcceptAsync()----------->end part 
+5.thenCombine() and thenCombineAsync()--------->combine 2 completeable futures
