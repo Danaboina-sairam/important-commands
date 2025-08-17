@@ -308,3 +308,22 @@ CompleteableFuture
 3.thenCompose() and thenComposeAsync()---------->ordering
 4.thenAccept() and thenAcceptAsync()----------->end part 
 5.thenCombine() and thenCombineAsync()--------->combine 2 completeable futures
+
+
+
+Jvm wrapper for platform thread
+Each Thread has Thread local class
+Thread local class has Thread local variable
+Here once set the value to thread local variable
+Need to remove is best practice because thread local variable specific to thread but not task
+Jvm is mediator between os thread and platform thread
+One to mapping between platform thread and os thread
+Disadvantages
+1.Thread takes time for creation
+2.ThreadPoolExecutor also takes time but less compared to thread
+3.in thread, internally db calls that time also thread takes time
+Virtual thread introduced in java 19
+Virtual thread creates and managed by jvm
+Whenever thread want to run that time virtual thread attached with os thread
+Whenever the thread wants to wait state that time virtual thread detached with os thread
+Ex: 2 os thread and many  no of virtual threads
