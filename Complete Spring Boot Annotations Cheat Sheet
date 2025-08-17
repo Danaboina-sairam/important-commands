@@ -1,0 +1,70 @@
+🚀 Complete Spring Boot Annotations Cheat Sheet – For Every Java Developer!
+
+If you’re building with Spring Boot, annotations are your magic wand 🎯, 
+ they reduce boilerplate code, enable configuration in seconds, and make your apps production-ready faster.
+
+Here’s a quick, concise, and powerful reference ⤵
+
+1️⃣ Core Annotations
+ • @SpringBootApplication → Combines  @Configuration  +  @EnableAutoConfiguration  +  @ComponentScan  (entry point).
+ • @ComponentScan → Location to scan for components, services, configs.
+ • @EnableAutoConfiguration → Auto-configures based on dependencies.
+ • @Configuration → Marks a class as a source of bean definitions.
+
+2️⃣ Stereotype Annotations (Bean Types)
+ • @Component → Generic Spring-managed bean.
+ • @Service → Business logic layer.
+ • @Repository → DAO layer + JPA exception translation.
+ • @Controller → MVC web controller.
+ • @RestController →  @Controller  +  @ResponseBody  (REST APIs).
+
+3️⃣ Web & REST Annotations
+ • @RequestMapping → Map URLs to methods (GET, POST, etc.).
+ • @GetMapping / @PostMapping / @PutMapping / @DeleteMapping / @PatchMapping → Shortcuts for specific HTTP methods.
+ • @PathVariable → URI variable → method parameter.
+ • @RequestParam → Query param → method argument.
+ • @RequestBody → Map request body (JSON/XML) → Java object.
+ • @ResponseBody → Return object → HTTP response body.
+ • @CrossOrigin → Enable CORS.
+
+4️⃣ Dependency Injection
+ • @Autowired → Auto-inject bean by type.
+ • @Qualifier → Pick specific bean when multiple exist.
+ • @Value → Inject from properties/env.
+ • @Primary → Default bean if multiple exist.
+
+5️⃣ JPA & Database
+ • @Entity → JPA entity.
+ • @Table → Map entity → table.
+ • @GeneratedValue → PK generation strategy.
+ • @Column → Map field → DB column.
+ • @JoinColumn → Foreign key mapping.
+ • @Transactional → Method/class → transactional context.
+
+6️⃣ Validation
+ • @Valid → Trigger validation before execution.
+ • @NotNull / @NotBlank / @NotEmpty → Mandatory field checks.
+ • @Size(min, max) → Length/size validation.
+ • @Email → Valid email format.
+ • @Pattern → Regex validation.
+
+7️⃣ Spring Boot Utilities
+ • @EnableScheduling → Enable scheduled tasks.
+ • @Scheduled → Fixed rate/delay/cron job.
+ • @EnableCaching → Enable caches.
+ • @Cacheable / @CachePut / @CacheEvict → Cache operations.
+ • @Profile → Activate bean per environment profile.
+ • @ConditionalOnProperty → Load bean if config property exists.
+
+8️⃣ Global Exception Handling
+ • @ControllerAdvice → Global exception/data binding for all controllers.
+ • @RestControllerAdvice → Like above + automatically returns JSON.
+ • @ExceptionHandler → Handle specific exception types.
+
+
+💡 Pro Tip:
+Mastering these annotations will make your Spring Boot development cleaner, faster, and production-ready in no time. 📌
+
+🎯 Your Turn:
+
+Which annotation do you use the most in your Spring Boot projects?
