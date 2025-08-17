@@ -1,0 +1,87 @@
+|── 𝐉𝐚𝐯𝐚 𝐁𝐚𝐬𝐢𝐜𝐬
+| ├── 🧮 Variables (int, float, double, char, boolean, String) 
+| ├── 📊 Data types (Primitive, Non-primitive) 
+| ├── ➗ Operators (Arithmetic, Logical, Relational, Bitwise) 
+| ├── 🔁 Conditionals (if, else, else if, switch) 
+| ├── 🔄 Loops (for, while, do-while, for-each) 
+| ├── ⚙️ Methods (static and non-static) 
+| └── 📚 Arrays and Collections 
+| 
+|── 𝐎𝐛𝐣𝐞𝐜𝐭-𝐎𝐫𝐢𝐞𝐧𝐭𝐞𝐝 𝐏𝐫𝐨𝐠𝐫𝐚𝐦𝐦𝐢𝐧𝐠 (𝐎𝐎𝐏)
+| ├── 🏗️ Classes and Objects 
+| ├── 🛡️ Encapsulation (getters and setters) 
+| ├── 👪 Inheritance 
+| ├── 🌀 Polymorphism (method overloading and overriding) 
+| ├── 🧩 Abstraction (abstract classes and interfaces) 
+| └── 🔓 Access Modifiers (private, protected, public) 
+| 
+|── 𝐄𝐱𝐜𝐞𝐩𝐭𝐢𝐨𝐧 𝐇𝐚𝐧𝐝𝐥𝐢𝐧𝐠
+| ├── ⚠️ Try-Catch Blocks 
+| ├── 🧹 Finally Block 
+| ├── 🎯 Throws and Throw 
+| └── 🛠️ Custom Exceptions 
+| 
+|── 𝐅𝐢𝐥𝐞 𝐇𝐚𝐧𝐝𝐥𝐢𝐧𝐠
+| ├── 📄 Reading and Writing Files 
+| ├── 🖋️ BufferedReader and BufferedWriter 
+| └── 📦 Serialization and Deserialization 
+| 
+|── 𝐉𝐚𝐯𝐚 𝐂𝐨𝐥𝐥𝐞𝐜𝐭𝐢𝐨𝐧𝐬 𝐅𝐫𝐚𝐦𝐞𝐰𝐨𝐫𝐤
+| ├── 📋 List (ArrayList, LinkedList) 
+| ├── 🗃️ Set (HashSet, TreeSet) 
+| ├── 🗺️ Map (HashMap, TreeMap) 
+| ├── 📥 Queue and Deque 
+| └── 🔍 Iterators 
+| 
+|── 𝐌𝐮𝐥𝐭𝐢𝐭𝐡𝐫𝐞𝐚𝐝𝐢𝐧𝐠
+| ├── 🧵 Threads and Runnable Interface 
+| ├── 🔒 Synchronized Methods 
+| ├── 🛡️ Locks 
+| └── ⚙️ Executors 
+| 
+|── 𝐉𝐚𝐯𝐚 𝟖+ 𝐅𝐞𝐚𝐭𝐮𝐫𝐞𝐬
+| ├── 🏷️ Lambda Expressions (simpler code) 
+| ├── 🚿 Streams (data processing) 
+| ├── 🎯 Functional Interfaces (Predicate, Consumer, Supplier) 
+| ├── 🧩 Default and Static Methods in Interfaces 
+| ├── 🔗 Optional Class (handling null) 
+| └── 🔄 Method References 
+| 
+|── 𝐅𝐫𝐚𝐦𝐞𝐰𝐨𝐫𝐤𝐬 𝐚𝐧𝐝 𝐋𝐢𝐛𝐫𝐚𝐫𝐢𝐞𝐬
+| ├── 🌱 Spring Framework 
+| ├── 🗄️ Hibernate (ORM) 
+| ├── 🧰 Apache Maven and Gradle 
+| └── 🎨 JavaFX (GUI) 
+| 
+|── 𝐃𝐞𝐛𝐮𝐠𝐠𝐢𝐧𝐠
+| ├── 🛠️ System.out.println() 
+| ├── 🐛 Debugging in IDEs (breakpoints, stepping through code) 
+| └── 📜 Loggers (Log4j, SLF4J) 
+| 
+|── 𝐎𝐭𝐡𝐞𝐫𝐬
+| ├── ⚙️ JVM, JRE, and JDK 
+| ├── 🗑️ Garbage Collection 
+| ├── 🔐 Inner Classes (static and non-static) 
+| ├── 🔀 Anonymous Classes 
+| ├── 🔁 Recursion 
+| ├── 🧠 Java Memory Model 
+| └── 🏷️ Annotations 
+| 
+|── 𝐀𝐝𝐯𝐚𝐧𝐜𝐞𝐝 𝐓𝐨𝐩𝐢𝐜𝐬
+| ├── ✨ Generics 
+| ├── 🔍 Reflection API 
+| ├── 🌐 Networking (Sockets, HTTP, and HTTPS) 
+| ├── 🔢 Regular Expressions 
+| └── 🧩 Dependency Injection 
+
+
+
+
+
+ClassName::MethodName (StaticMethod)
+ObjectReference::MethodName (Non Static Method)
+ClassName::MethodName (ArbitraryObject - non Static Method)
+ClassName::new (Constructor Reference)
+
+
+Java 8+ features (Streams, Lambdas, Optional, Functional Interfaces)
