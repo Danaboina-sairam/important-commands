@@ -1,0 +1,1369 @@
+Interview questions #1
+Organization : Infosys
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+
+Core java
+- Tell me about Java versions and their features
+- Tell me about the Java 8 features you have used
+- What are functional interfaces?
+- What is serialization?
+- Explain java memory model
+- What is a marker interface in java?
+- How to create threads in java?
+- Tell me about multithreading
+- How to handle concurrency in java?
+
+Coding
+- Find the max element in a list
+
+Design patterns
+- Which design patterns are you aware of?
+- Explain factory design pattern
+
+Database
+- How to effectively fetch data from tables?
+- What is indexing?
+
+Spring framework
+- What happens when a spring boot application starts?
+- How to make spring application resilient?
+- Which version of spring boot did you use?
+
+Microservices
+- Why microservices?
+- Explain the architecture of micro services
+
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Difference between string and string buffer
+- Give me names of 10 classes in java.util package that you have used
+
+Design patterns
+- What all design patterns have you used in your projects?
+- Explain singleton pattern
+
+Spring framework
+- What is the name of the package in which spring annotations are present?
+- How @RestController annotation works?
+- Tellme about application.properties file in spring boot
+
+
+
+
+Interview questions #2
+Organization - KPMG
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What is try with resources?
+- What is immutability?
+- How does the add method work in a set?
+- Implement an add method for a List
+- Which version of java are you using?
+- Relation between equals and hashCode methods in java
+
+Database
+- What are SQL Triggers?
+- Explain having clause in SQL
+
+Spring framework
+- How do you handle exceptions globally in spring boot?
+- What is spring profiling?
+
+Microservices
+- What is your team's approach on splitting a monolith into microservices
+
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Coding
+- Find the second highest salary from a given list of employees (using java streams)
+- Find the second highest salary (using sql query)
+
+Design patterns
+- What design patterns have you worked on?
+- Explain decorator design pattern
+- Difference between factory and abstract factory design patterns
+
+Microservices
+- How do you establish communication between two microservices?
+- How do you do service discovery?
+- Do you use cache? What is the use of it?
+- What are the challenges you faced while migrating to microservices architecture?
+
+Security
+- How do you do authentication and authorization
+
+Cloud(Azure)
+- What is Azure service bus?
+- How do you deploy services without any downtime?
+
+Some generic questions
+- Do you have any experience with UI technologies?
+- How do you handle a conflict with a colleague?
+- Have you ever failed at any task and how did you tackle it?
+- How do you handle/identify performance issues?
+
+
+Level : 3 (with senior manager and client)
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Microservices
+- What is the advantage of microservices?
+- How do you make rest api calls? By opening the service with a public path or ip address?
+
+Security
+- How do you authenticate a user?
+- How does JWT authentication work? Can you explain?
+- What does JWT contain?
+- How do you use filters? Explain JWT authentication filter
+- Difference between hashing and encoding? Which one do you use to secure passwords
+- How do you authenticate databases for a user?
+
+Some generic questions
+- What are your roles and responsibilities in your current team?
+- Which role would you be comfortable accepting? As a lead or a senior dev?
+
+
+
+Interview questions #3
+Organization - State Street
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What is serialization?
+- How do you create custom exceptions in java?
+- Have you ever created a custom exception extending Exception class?
+- What is a marker interface?
+- What all collections have you used?
+- How do you make a list thread safe?
+- How do you make a singleton instance synchronized?
+- What is lazy loading of a singleton instance?
+- Give me a scenario where you have used a set?
+- Why choose ArrayList over Vector?
+- What is an atomic variable?
+
+Coding
+- Implement singleton design pattern
+
+Design patterns
+- What all design patterns have you worked on?
+
+Spring framework
+- Name the annotations you have used in spring boot?
+- Can I create more than once database connection instances in spring boot?
+- What does @Transactional do?
+
+Some generic questions
+- Have you ever worked on front end technologies like Angular or react?
+- When and how did you implement AWS S3?
+- Where did you use Kafka?
+- Where have you used base64 and SHA256?
+- Did you ever face performance issues, how did you resolve them?
+- Have you ever used cache? Explain the scenario
+- How did you implement Redis?
+- How do you mock static methods using Mockito?
+- Explain the scenario where you had to use Apache POI?
+- Are you following TDD?
+
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Features of java 21
+- Features of java 8
+- What are functional interfaces
+- Why are lambdas used?
+- What is a red black tree?
+
+Coding
+- Stream an employee list and filter emps having salary >10000 and sort them
+- How to implement customized sorting in streams().sort() method
+
+Spring framework
+- What are the important annotations in spring boot?
+- How does the spring batch work?
+- Give me a scenario where you have implemented spring scheduler
+- What does @Transactional do?
+- How do you call a stored proc using JDBCTemplate?
+
+Database
+- What is a partition in a database?
+- How do you read a list of items from a database?
+
+Kafka
+- How do you set up Kafka?
+- Are Kafka messages synchronous or asynchronous?
+
+Unit testing
+- How do you test DB calls using JUnit and Mockito?
+- How do you test stored procs using JUnit?
+- What is the code coverage you maintain?
+
+Cloud
+- Have you ever used EC2?
+
+Some generic questions
+- Have you been part of production deployments?
+- Have you ever used react or angular?
+- Explain ACID properties
+- What is a webhook? Have you ever used or implemented it?
+
+
+
+
+Interview questions #4 (1/2)
+Organization - EPAM
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Distinguish between == vs equals()
+- What is immutability and how to create an immutable class?
+- What is Autoboxing and auto unboxing
+- Explain about final keyword
+- Explain about access modifiers in java
+- Explain 4 main oops concepts
+- Distinguish between compile time vs runtime polymorphism
+- What is fail-fast vs fail safe?
+- What is forkjoin pool
+- Distinguish between ArrayList, LinkedList and Vector
+- Explain java memory model(stack, heap, string constant pool) and garbage collection in java
+- Explain Functional interfaces (FIs in java library)
+- What are intermediate and terminal operations in streams
+- Explain the difference between wait, notify and notify all
+- Explain exception handling in java and it's hierarchy
+- How to define custom exceptions in java?
+- What is volatile keyword? Explain it's usage in synchronization
+- Distinguish between Hashmap vs hashtable, how do you handle collision
+
+Coding
+- Basic program on using streams(filter, map, sort, flatMap, reduce, optional, collect, grouping)
+- Find the first non repetitive character in code(explain is its time complexity)
+
+
+
+Interview questions #4 (2/2)
+Organization - EPAM
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What do you need to run a java program? Jdk or jre
+- What is platform independence in java?
+- What is <? extends Number> in generics
+- Explain exception hierarchy in java
+- Can we throw an error in java? If yes, what happens when you do? (Example : throw new Error();)
+- A child class extending a parent class has an overridden method. Can we increase/decrease the scope of access modifiers/specifiers in child class?
+- Explain java memory model/management
+- Explain different memories in java
+- How does the garbage collector work? What is it's framework?
+- What are the inbuilt FIs in java, how do you create one?
+- How serialization works in java. Serial version Id. What is the use of it ?
+- Ever created custom annotations? What is the use of custom annotations?
+- If 3 objects are created in the main method, how many objects are created in the stack?
+
+
+Coding
+- Java generics, how to write a method accepting generic value(wild card)
+- override equals method to check if given two employee objects are equal or not
+- Create a functional interface and run it
+- program to merge two sorted arrays into one
+- sort a given linkedHashmap based on values (using streams)
+
+
+Spring framework
+- What is application context?
+- Why use repository over component
+
+Database
+- Which approach is better when reading from two tables? subquery or joins?
+- What is cluster indexing
+
+Kafka
+- Will a consumer group consume same message from kafka(duplicates)
+
+Unit testing
+- Difference between mock and inject mock
+
+Swagger
+- Explain swagger annotations that you have used in your project
+
+Cloud
+- How to implement AWS S3 in code
+- How do you save username and passwords in cloud env
+
+Some generic questions
+- What do you know about API Gateway?
+- What is the best approach to save passwords?
+- Explain SOLID principles
+- Explain CAP principles
+
+
+Level : 3 (Manager discussion)
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Coding
+- Write a program to print non repeating numbers from a given list
+- Balanced parentheses program
+
+Spring framework
+- How do you make microservices communicate with each other?
+- How to achieve asynchronous calls in java and spring boot?
+
+
+
+
+Interview questions #5
+Organization - Tech Mahindra
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What is the significance of default methods in java 8?
+- Difference between ArrayList and LinkedList
+
+Coding
+- Write a program to check strings are anagram or not
+- Reverse an array without using libraries and 3rd variable
+
+Spring framework
+- What annotations is @springbootappilcation a combination of?
+
+Microservices
+- How do you make microservices communicate with each other?
+
+Database
+- Difference between right join and left join
+- Difference between truncate and delete
+
+Some generic questions
+- What do you know about circuit breaker
+- Any experience with UI, angular?
+
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Which version of java are you using? What are the latest features?
+- What is the use of records and where can you use them?
+
+Coding
+- Use streams to fetch the employee records having average salary per department
+- Write code to implement REST communication between two micro services
+
+Microservices
+- How do microservices work? Explain the architecture.
+
+Spring framework
+- How REST converts objects to JSON?
+- Have you ever converted string to JSON and JSON to string? Which library is used for this?
+- Have you ever used hibernate? What annotations do you know in hibernate?
+
+Database
+- How do you optimize database performance?
+
+Kafka
+- Difference between Kafka and MQ
+
+Some generic questions
+- What do you know about CI/CD? Have you used Jenkins?
+- How do you track a defect when a request is being used by multiple services
+
+
+
+
+Interview questions #6
+Organization - Cognizant
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Java latest updates
+- Java 8 features
+- What is externalization?
+- What are functional interfaces?
+- How does stream().forEach() work?
+
+Coding
+- Sort employees list by name and salary (using streams)
+- Write a program to remove duplicate characters from a string
+
+Spring framework
+- How to handle exceptions in spring boot?
+
+Microservices
+- Why microservices
+- How to expose endpoints to end user
+
+Database
+- How to add new column to a table
+- Delete duplicate records in a table
+- What is an index in SQL
+- What is an SQL trigger
+- What is an SQL stored procedure
+- Define a table structure for user
+
+Spring security
+- What do you know about spring security?
+- What are request matchers in spring security?
+- JWT and OAuth
+- How do you generate JWT token?
+- How to authenticate user?
+
+Some generic questions
+- How to do load balancing?
+- How do you test DAO layer using JUnit and Mockito?
+- what is Spring AOP aspect oriented programming?
+- Have you used Kubernetes and docker in your projects?
+ - How to get data with optional fields in JPA Hibernate
+- Explain maven lifecycle
+
+
+
+
+Interview questions #7 (1/2)
+Organization - EY
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Spring framework
+- How do you make services communicate with each other?
+- What is @Async?
+- What is @Transactional?
+
+Microservices
+- Explain the architecture of your project
+- What does service discovery do when a service goes down?
+
+Circuit Breaker
+- What is circuit breaking? What are the different methods of achieving it?
+- What other frameworks can be used in place of Resilience4j?
+
+Database
+- How to add new column to a table
+- Delete duplicate records in a table
+- What is an index in SQL
+- What is an SQL trigger
+- What is an SQL stored procedure
+- Define a table structure for user
+
+Spring security
+- What do you know about spring security?
+- What are request matchers in spring security?
+- JWT and OAuth
+- How do you generate JWT token?
+- How to authenticate user?
+
+Some generic questions
+- What is scaling up and scaling down?
+- How did you implement AWS S3 for uploading and reading data?
+- What is containerization?
+
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Deadlock synchronization program debugging
+
+Spring framework
+- What does @Component do?
+- What is the use of @Autowired?
+- Have you ever used JPA or hibernate?
+- How is pagination is implemented?
+- What do you send in the request body of a transaction?
+- Which status codes have you used?
+- Difference between put and post
+- Put or post, which one is idempotent?
+
+Microservices
+- What all microservice design patterns have you used?
+
+Circuit Breaker
+- What is circuit breaking? What are the different methods of achieving it?
+- What other frameworks can be used in place of Resilience4j?
+
+Spring security
+- How to set up spring security?
+
+Some generic questions
+- How do you handle event driven programming
+
+
+
+Interview questions #7 (2/2)
+Organization - EY
+
+Level : 3 (client round)
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Which version of java are you using?
+- What are the features in java 17?
+- Can we define a case for null in the switch case in java 17?
+- Are you using oracle open JDK?
+
+Spring framework
+- How do you set up transactions in spring boot?
+- How do you handle exceptions in spring boot?
+- How do you do profiling in spring boot?
+- Have you ever connected to multiple databases in spring boot?
+
+Microservices
+- How do you set up the entire microservices architecture?
+
+Database
+- Tell us more about single store database? How is it different from oracle?
+
+Circuit Breaker
+- How do you do load balancing and circuit breaking?
+
+Spring security
+- How do you configure spring security?
+- What annotation do you use for configuring spring security?
+
+Kafka
+- Tell us about how you use Kafka for consuming and publishing?
+
+Some generic questions
+- How do you scale your applications?
+- How do you test void methods in Mockito?
+- How do you check code coverage?
+- How do you do static code analysis?
+
+
+
+Interview questions #8
+Organization - Capgemini
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Explain features of java 8
+- What are functional interfaces
+- What are streams?
+- What is a CompletableFuture?
+- What is collections framework?
+ - What all things have you used in the collection framework?
+- Difference between HashMap and Hashtable
+
+Coding
+- Fetch the second highest salary
+
+Spring framework
+- Why send data in batches to database instead of sending all in one go?
+- What is a rest API, what do you know about the REST framework?
+- What is the use of status codes in rest?
+- Why do we use different methods in rest APIs?
+- How will spring application understand the JSON request you send?
+- Why are you using JDBCTemplate over hibernate?
+- How do you achieve spring security?
+
+Microservices
+- What do you know about micro services?
+- How to do load balancing? What is eureka?
+- How do you scale your applications?
+- How do you deploy services?
+- What are the steps involved in deploying a service?
+
+Circuit Breaker
+- How to do circuit breaking? What framework do you use for it?
+- What is an open, half open and closed state?
+
+Spring security
+- What do you know about JWT tokens?
+
+Some generic questions
+- What are the critical and difficult defects you have fixed?
+- What technologies have you used?
+- Have you used docker and Kubernetes?
+
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Difference between == and equals
+- What are the latest java feature in latest versions?
+- Difference between Collection and Collections
+- How HashMap works?
+- How do you synchronize a HashMap?
+- Why do we have concurrent HashMap when we can synchronize HashMap?
+- What is the use of streams in java?
+- What is a lambda expression?
+- What is a scope resolution operator?
+
+Coding
+- Write a program to print the count of each character in a string
+
+Spring framework
+- Difference between @Autowired and @Qualifier?
+- How do you handle exceptions in spring boot?
+- Have you worked on hibernate?
+
+Microservices
+- How to setup a microservice architecture?
+- How do you establish communication between two microservices?
+- Are these calls synchronous or asynchronous?
+- Explain the microservice design patterns you have worked on
+
+
+
+
+Interview questions #9
+Organization - Accenture
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What is a spliterator?
+- Permgen vs Metaspace
+- What are wrapper classes
+- What is an anonymous class in java?
+- Difference between JSP and servlets
+- Java 8 and 9 updates
+- Explain multithreading in java
+- What is a default method in an interface
+- Difference between inheritance and coherence
+
+Design patterns
+- What is a singleton?
+
+Spring framework
+- How does spring boot work?
+- How take care of exception handling in spring boot?
+- What is an actuator?
+
+Microservices
+- Difference between synchronous and asynchronous calls. When to use one of these?
+
+Some generic questions
+- Have you ever worked on Swagger?
+- Explain be about Junit
+- What is a Stub and a driver?
+- What is Sharding?
+- Difference between horizontal and vertical scaling, when to use one of these?
+- What will you do if the project manager asks you to get a new change implemented in between the sprint?
+- What if a production defect comes at a very critical time and you cannot say no?
+
+
+
+Interview questions #10
+Organization - Virtusa
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Method overriding example, what should be the access specifier of the overriding method?
+- What are access specifiers in java? Name a few you are familiar with
+- Example of what happens when you insert different objects with the same data into HashSet?
+
+Database
+- Write a query to fetch the student who has scored top third highest marks
+
+Spring framework
+- Exception handling in spring boot?
+- How do you secure a spring app?
+- How to generalize a common response object for all end points in the project?
+- How can you create spring beans of two different implementations of a single interface without any issues? (using qualifier and primary annotations)
+
+Microservices
+- What are the challenges you faced while switching to microservices architecture?
+
+AWS
+- What was the use case in your previous project for using AWS S3? How did you do it?
+
+Some generic questions
+- Have you ever worked on UI?
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Tell me about your project
+- Which version of java are you using?
+- What are the functional interfaces and how do you use them?
+- How do you read huge amounts of data from a file with limited cpu and memory?
+- How do you assign a task to a thread? You can use thread frameworks
+
+Database
+- Write a query to join emp and dept table to fetch max salary in each dept
+- Use streams to filter records having age greater than 30 and salary greater than 1 lakh and concat their names
+
+Spring framework
+- How did you implement the spring scheduler?
+
+Microservices
+- What are the challenges you faced while switching to microservices architecture?
+
+AWS
+- What do you know about AWS S3?
+
+Some generic questions
+- What do you know about CI CD pipelines?
+- What is blue/green deployment?
+- What is SSL?
+- Http vs https?
+
+
+Level : 3 (client round)
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Explain the latest features that you have used in java
+- Where did you use text blocks, sealed classes in your project?
+
+Circuit Breaker
+- How did you implement circuit breaking?
+- When did you use the retry mechanism?
+
+Kafka
+- What was the purpose of using Kafka in your project?
+
+Some generic questions
+- How will you fix the issues when multiple instances are failing to serve the incoming requests?
+- What was the reason for choosing SingleStore database in your project?
+- Have you ever used cache in your project? Where did you use it?
+
+
+
+Interview questions #11
+Organization - Oracle (attempt - 1)
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What is generics in java and what is the purpose of it?
+- What is a thread pool in java?
+- What happens if one of the threads causes an error?
+- How do you handle multiple threads trying to access a resource?
+
+Coding
+- Write a program find the longest substring without duplicates
+
+Design patterns
+- What design patterns have you used?
+
+System design
+- Design an ordering system for stores
+
+Kafka
+- Do you use Kafka?
+
+Caching
+- What is an LRU cache?
+
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What is serialization?
+- What do you know about Class.class in java?
+- How do you access a private constructor from outside the class?
+- What is an annotation?
+- How do you create custom annotations in java?
+
+Coding
+- Implement Singleton design pattern
+- Trapping water problem
+- Write a method to get max value from a custom data structure within constant time(without traversing)
+
+Database
+- What is a rank in SQL?
+- Delete duplicate rows from a table
+
+Design patterns
+- What are the design patterns you have worked on?
+
+Caching
+- What is LRU cache?
+- Implement LRU cache
+
+Some generic questions
+- What are SOLID principles? Explain in detail.
+
+
+
+Interview questions #12
+Organization - Oracle (attempt 2)
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Which version of java are you using?
+- What are the latest features in java 21?
+- What are the deprecated features?
+- What kind of issues/challenges have you faced while upgrading the java version in your project?
+
+Coding
+- Use switch case to write a program which returns lottery winning message when the user passes any random number.
+- Write a rest controller with all the annotations needed.
+
+Spring framework
+- What do you know about maven?
+- How does maven work?
+- How do you set up spring security?
+
+Database
+- How frequently do you SQL?
+- Tell us about different joins you have used in your project
+
+Kafka
+- Explain how you implemented Kafka?
+- What happens if a message processing fails at the consumer end?
+What happens if the Kafka broker is down?
+
+Some generic questions
+- Which antifactory do you use to store your artifacts?
+- What are add and copy commands in docker file?
+- What are docker and Kubernetes used for?
+- What do you know about Jenkins?
+
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Which version of java are you using?
+- Which features excited you the most in java 21?
+- Which libraries do you use for reducing boilerplate code?
+- What are association, aggregation and composition in java?
+- Is multiple inheritance allowed in java?
+- How do you implement new features into existing functionality without disturbing existing functionality?
+
+Coding
+- Was asked to write a complex code with streams, filters, map, FlatMap, collect, with nested lists, etc.
+
+Spring framework
+- What is the abbreviation for JWT?
+- What are the different parts of JWT?
+- How is JWT used for authentication and authorization?
+
+Design patterns
+- What are the design patterns you have worked on?
+
+Some generic questions
+- What are the roles you have taken up in your career?
+- What are the different activities you handle in your team?
+- What are SOLID principles? Explain in detail.
+- What kind of role are you looking for?
+- Where do you see yourself in 5 years?
+- Do you follow Agile?
+
+
+
+Interview questions #13
+Organization - CDK Global
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Latest java version you’ve used and it’s features
+- How do lambdas work? Create a couple of lambdas
+- What are virtual threads?
+- How to enable preview features in java?
+
+Coding
+- Write a program to reverse every word in a given String
+
+Spring framework
+- Spring profiles
+- @Transactional annotation
+
+Microservices
+- Microservice design patterns
+- Explain SAGA design pattern
+- Challenges you faced while shifting to microservices from a monolith
+
+Some generic questions
+- What are SOLID principles
+
+
+Level : 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Which versions of java have you worked on?
+- Intermediate operations in streams
+- How good are you with data structures?
+- How do you identify if a linked list is cyclic? What is a fast pointer - slow pointer approach?
+- Why are strings immutable?
+- Difference between static and non static
+
+Coding
+- Write a program to find the two elements and their indexes in an array that sum up to a given target value
+- Create a singleton class
+
+Database
+- What is sharding?
+
+Spring framework
+- Have you ever used JPA?
+- How do you establish a JDBC connection in spring boot?
+
+Some generic questions
+- Have you ever worked on the front end?
+- How do you design a system which is handling millions of records being saved into a database?
+
+
+Level : 3
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Coding
+- Create a spring boot app and add a REST API to insert data into repository and write JUnit test cases using Mockito
+
+Database
+- How good are you with databases?
+
+Spring framework
+- How do you make respective environments access different connection strings or properties?
+
+Kafka
+- Explain the scenario of where you have used Kafka
+- What are offset, partition, and consumer groups in Kafka? 
+- How do you make multiple instances of a single service are not reading duplicate messages in through Kafka?
+
+Some generic questions
+- What is scalability? When and how do you scale an application?
+- What is horizontal and vertical scaling?
+- What are SOLID principles? Elaborate
+- How do you deploy your services?
+- How did you use Redis in your application?
+- What is the difference between in memory cache and distributed cache?
+
+
+
+Interview questions #14
+Organization - Highradius
+
+Level : 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Explain BiPredicate
+- Strings
+- Inheritance
+- StackOverflow exception
+- Different exceptions
+- Null pointer in java and how to prevent it?
+- ArrayIndexOutOfBounds exception
+- Recursion
+- Memories in Java
+- How to iterate values in a map
+- It is valid to have classes and interfaces without any content in them
+- Exception hierarchy
+- Checked and unchecked exception
+- Examples of checked and unchecked exceptions
+- Final, finally and finalize
+- 'final' method
+- 'final' method reference
+- What is String constant pool
+- Mention few String class methods
+- Why is string immutable
+- Different ways of creating strings
+- Collection hierarchy
+- Difference between list and set
+- Structure of map
+- How values are stored based on hashing
+- Java 1.8 features
+- Different methods of object class
+- Different oops concepts
+- What is abstraction and encapsulation?
+- What is method overloading and method overriding?
+
+Data structures
+- Linked list
+
+Coding
+- Check whether a given year is leap year or not?
+- Inserting new node in between linked list
+- Binary search logic
+
+Design patterns
+- What are the different categories of design patterns?
+- Explain the design patterns you have used which use cases in you previous projects
+
+Spring framework
+- Spring MVC
+- Annotations of spring MVC
+- What do you know about app security?
+- How do you set up security in a spring app?
+- What do you know about SSO?
+
+Microservices
+- What is JWT?
+- What are the different parts of JWT token?
+
+Kafka
+- Have you used Kafka? Explain the business need where you have implemented it?
+
+System design
+- Can you design an Amazon E-commerce system(only a web app)?
+- Explain the tech stack that you’ll use for this
+
+Some generic questions
+- What are your current roles and responsibilities?
+- Which part do you prefer, dealing with people or working on the technical side of it?
+
+
+
+
+
+Interview questions #15
+Organization - Deloitte
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What is encapsulation in java
+- Difference between JVM and JRE
+- What are jar and war
+- Difference between 'super' and 'this'
+- Explain about abstract class and interface in java
+- Explain about functional interface in java
+- Explain about Streams in java 1.8
+- What are lambda expressions
+- Explain String class object creation
+- Why string is immutable
+- Difference between Runnable and Callable
+- Exception handling in Java
+- throw vs throws
+- Explain about final keyword
+- What is a static block
+- Explain collection framework
+- Difference between Array list and linked list
+- Difference between array and array list
+- What is the load factor
+- Explain the concept of map in java
+- Explain hashing concept
+- How iteration happens on a map
+- Difference between tight coupling and loose coupling
+- Whare are immediate child classes of Object class in java
+
+Spring framework
+- Explain about Rest template
+- How to return a view?
+- How dependency injection works?
+- Async and lazy loading
+- Difference between @EnableAutoConfiguration and @configuration
+- Webserver and app server
+- What are the Http status codes you know?
+
+Database
+- What is a left join?
+- What is a self join
+- Difference between truncate and delete
+- How to alter a column?
+- Difference between primary key and unique key
+
+
+
+Interview questions #16
+Organization - Chubb (1/2)
+
+Level - 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Coding
+- Find the first occurrence of number 1 from a sorted binary array and return index
+
+Kafka
+- What happens when you have two or more Kafka consumer groups with different group id?
+- How to make sure that Kafka is consuming every message that is being published? Also, the sequence is maintained
+
+Some generic questions
+- Have you ever used Kubernetes or docker?
+- Explain SOLID principles
+- How do you do log management?
+- Which data structure have you used in Redis implementation?
+
+
+Level - 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What are lambdas in java streams?
+
+Kafka
+- What did you use Kafka for?
+
+Azure
+- What is an Azure Function?
+- Where have you used the Azure event hub and service bus?
+
+Some generic questions
+- What is the tech stack that you have worked on?
+- What are the technically challenging tasks that you have taken up?
+- Have you ever built a microservice?
+- Have you ever worked with Apache camel?
+- Have you ever been part of production support?
+- What do you know about Kubernetes?
+
+
+
+
+Interview questions #16
+Organization - Chubb (2/2)
+
+Level - 3
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- What are the changes you observed in java from 8 - 11 - 17 & 21
+- When you upgrade to a higher java version, what all changes do you have to take care of?
+
+Kafka
+- What did you use kafka for?
+
+Azure
+- What is an Azure Function?
+- Where have you used the Azure event hub and service bus?
+
+Some generic questions
+- What is the tech stack that you have worked on?
+- What are the technically challenging tasks that you have taken up?
+- Have you ever built a microservice?
+- Have you ever worked with apache camel?
+- Have you ever been part of production support?
+- What do you know about kubernetes?
+
+
+
+
+Interview questions #17
+Organization - Qualcomm
+
+
+Level - 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Coding
+- Write a program to find the smallest missing element in a given array and determine the time complexity
+- Find the anagrams in given array and group them into a list of lists
+
+
+
+Interview questions #18
+Organization - Ascendion
+
+
+Level - 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Explain compile time polymorphism vs runtime polymorphism
+- Features of java 8
+- What are functional interfaces?
+- What is the purpose of default and static methods in interfaces since java 8
+- What is a marker interface in java? Examples
+- Explain java memory model
+- What is the difference between string constant pool and thread pool in java
+- Explain SOLID principles
+- What design patterns do you know?
+- How to make a singleton object synchronized?
+- When do you use a builder pattern? How does it work?
+
+Coding
+- Write a program to convert given integers into a list, filter odd numbers and give the repeat count of each number
+
+Spring framework
+- What is the difference between @PathVariable and @ResponseBody?
+- Scope of a bean in spring boot?
+- What are the different annotations in @SpringBootApplication
+- @Value annotation
+- How do you externalize properties and read them?
+
+Microservices
+- Tell me about microservice design patterns you know of
+- What is a single database per instance design pattern?
+
+Kafka
+- What is a consumer group in Kafka
+
+Some generic questions
+- Do you have any experience on no SQL and AWS?
+
+
+Level - 2
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Core java
+- Explain JVM architecture
+- Explain abstraction with example
+- What are different types of design patterns you are aware of?
+
+Coding
+- Create an immutable class which is synchronized(thread safe)
+- Create a singleton class
+- Program on streams using filter and flatMap
+
+Spring framework
+- Different auto wire types
+- Difference between singleton and prototype
+- Can we create multiple beans of the same type?
+- How do you configure spring security?
+- Difference between dependency injection and IOC container
+
+
+
+Interview questions #19
+Organization - Cigniti\Coforge
+
+
+Level - 1
+
+About project
+- Explain about your project and tech stack you are using
+- What are your roles and responsibilities in your team
+
+Microservices
+- What is the alternative for schedulers?
+- How do you split a monolith into micro services?
+- How do you set up security for microservices?
+- How do you troubleshoot performance issues in an application?
+- How do you establish communication among microservices?
+- What if one of the services fails to respond? How do you tackle it?
+
+Database
+- Write a query to fetch 3rd highest salary
+- Have you ever used RANK vs DENSE_RANK
+
+
+
+
+
+
