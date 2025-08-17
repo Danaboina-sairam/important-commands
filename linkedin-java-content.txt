@@ -776,3 +776,80 @@ Starting today, I'm launching a daily Java Interview Prep series — one solid c
  • Common in config values, math constants, etc.
 
 𝚙𝚞𝚋𝚕𝚒𝚌 𝚜𝚝𝚊𝚝𝚒𝚌 𝚏𝚒𝚗𝚊𝚕 𝚍𝚘𝚞𝚋𝚕𝚎 𝙿𝙸 = 𝟹.𝟷𝟺𝟷𝟻𝟿;
+
+
+
+
+
+🚀 Java & Spring Boot Interview Prep Tip!
+
+One question that almost always pops up in interviews:
+👉 “What is Idempotency in REST API?”
+
+✅ Idempotency means:
+No matter how many times a client sends the same request, the result on the server remains the same.
+
+💡 Example:
+
+DELETE /users/101 → Deleting the same user multiple times will still result in that user being deleted (same effect).
+
+PUT /users/101 with the same payload → Updating with identical data doesn’t change the state after the first request.
+
+
+❌ Non-idempotent: POST /users (creates a new record every time).
+✔ Idempotent: PUT, DELETE, GET
+
+🔑 Why interviewers ask this?
+Because it shows your understanding of HTTP methods, API design, and reliability in distributed systems.
+
+
+💬 What’s the most tricky REST API question you’ve faced in interviews? Drop it below ⬇
+
+hashtag#Java hashtag#SpringBoot hashtag#RESTAPI hashtag#InterviewPrep hashtag#Microservices hashtag#BackendDevelopment hashtag#CodingTips hashtag#Idempotency
+
+Idempotency ≠ Safe (GET is safe & idempotent, DELETE is idempotent but not safe).
+
+Critical for retry logic in APIs (network failures, duplicate requests, etc.)
+
+
+
+
+🚀What is CompletableFuture in Java ?
+
+It seems difficult to beginners but important to learn!
+
+When I was working on an API integration that required calling multiple services in parallel and merging their results, I came across CompletableFuture - and it became my go-to tool for async programming in Java.
+
+💡 What is CompletableFuture?
+ Introduced in Java 8 as part of java.util.concurrent, CompletableFuture represents the result of an asynchronous computation.
+ It allows you to run tasks in the background, chain their execution, combine results from multiple tasks, and handle errors gracefully - all without blocking the main thread unnecessarily.
+
+📌 Key Capabilities of CompletableFuture
+1️⃣ Asynchronous Execution – You can start tasks in a separate thread so that your main program continues without waiting.
+ 1.Use runAsync() for tasks that don’t return data. 
+ 2.Use supplyAsync() for tasks that return results.
+
+2️⃣ Chaining Operations - Once a task finishes, you can process its result using:
+ 1.thenApply() to transform the result.
+ 2.thenAccept() to consume the result.
+ 3.thenRun() to trigger a follow-up task without using the result.
+
+3️⃣ Combining Results – If you have multiple independent async tasks, you can combine them:
+ 1.thenCombine() merges results of two tasks.
+ 2.allOf() waits for all tasks to complete and then processes their results.
+ 3.anyOf() proceeds as soon as the first task finishes.
+
+4️⃣ Error Handling - Async tasks can fail too, and CompletableFuture gives you tools to handle that:
+ 1.exceptionally() to provide a fallback value if something goes wrong.
+ 2.handle() to manage both success and failure in one place.
+
+✅ Why I Use CompletableFuture
+ It’s perfect when:
+Calling multiple APIs or databases in parallel.
+Aggregating results from different services without unnecessary waiting.
+Building scalable and non-blocking backend systems.
+
+With CompletableFuture, I can design flows where multiple independent tasks start together, finish independently, and then get merged - all without slowing down the user experience.
+
+Real Life example for easy understanding ->
+Suppose you are in shopping mall buying multiple products instead of paying after selecting each product ,you collect it in a cart then pay for all which simply save your time and efforts, that's the same thing done by our hero CompletableFuture.
