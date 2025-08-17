@@ -1,0 +1,37 @@
+🚀 25 Java Interview Questions You MUST Know in 2025 🚀
+Are you preparing for Java interviews? 📚 Here are the top 25 Java interview questions to help you crack your next interview! 💻
+
+Core Java & Concurrency 🔥
+1. Volatile vs Synchronized vs Atomic🔒: Understand the different levels of thread-safety and when to use each.
+2. Java Memory Model (JMM)📚: Know the visibility and ordering rules that govern concurrent programming in Java.
+3. CompletableFuture vs Future⏰: Learn how to write async code that's efficient and easy to read.
+4. Custom Annotations📝: Create and process custom annotations at runtime to write more flexible code.
+5. Checked, Unchecked, and Error🚨: Understand the differences between these exception types and how to handle them.
+
+Garbage Collection & Memory Management 📊
+6. Garbage Collection in Java 17+🚮: Learn about the G1 GC and ZGC garbage collectors and how they're used in modern Java applications.
+7. Memory Leaks💣: Detect and prevent memory leaks to ensure your application runs smoothly.
+8. Optional🎁: Use Optional to avoid NullPointerExceptions and write more robust code.
+
+Spring & Spring Boot 🌱
+9. Caching with @Cacheable & @CacheEvict⚡️: Speed up your application with caching.
+10. BeanFactory vs ApplicationContext🤔: Understand the differences between these two Spring concepts.
+11. Bean Lifecycle🔄: Learn about the lifecycle of a Spring bean, from creation to destruction.
+12. @Lazy & @DependsOn🔗: Use these annotations to control bean loading and dependencies.
+13. Auto-Configuration🔩: Understand how Spring Boot wires itself up automatically.
+
+Spring Data JPA 📈
+18. JpaRepository vs CrudRepository🤝: Choose the right repository for your needs.
+19. Pagination & Sorting📊: Handle large datasets with ease using pagination and sorting.
+20. @Query🔮: Write custom SQL queries using Spring Data JPA, and create custom database queries.
+
+REST APIs & Security 🔒
+21. Exception Handling🚨: Handle exceptions in a REST API using @ControllerAdvice and @ExceptionHandler.
+22. @RestController vs @Controller🤔: Understand the differences between these two annotations.
+23. Secure REST API🔒: Secure your REST API using Spring Security and JWT.
+
+Microservices & Messaging 📢
+24. Kafka📊: Understand the basics of Kafka, including producer and consumer configurations.
+25. Event-Driven Architecture📈: Learn how to build event-driven systems using Spring Boot, Kafka, and REST.
+
+Pro Tips: Understand the concepts and implementation. Interviewers love when you explain how and why, not just what. 💡 
