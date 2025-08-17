@@ -95,3 +95,38 @@ Here’s a curated checklist of important Java Backend Interview Questions (5–
  🔹 Monitoring with Prometheus + Grafana
 
 💡 This covers Core Java 21, Spring Boot, Microservices, Cloud, SQL, Kafka, Docker, and Kubernetes — a solid prep roadmap for backend interviews in 2025.
+
+
+
+
+
+
+🚀 Interview Experience – Java Developer Role
+I recently appeared for a Java Developer interview and wanted to share the questions asked. I’m not mentioning the company name, but these might help you in your preparation.Basic Questions
+📝 Interview Questions:
+Core Java & OOPs
+ 1️⃣ Explain OOPs concepts with real-world examples.
+ 2️⃣ Difference between String, StringBuilder, and StringBuffer.
+ 3️⃣ How does Garbage Collection work in Java?
+ 4️⃣ Difference between == and equals() in Java.
+ 5️⃣ Why is String immutable in Java?
+ 6️⃣ Explain the HashCode() and equals() contract.
+Collections Framework
+ 7️⃣ Difference between HashMap, LinkedHashMap, and TreeMap.
+ 8️⃣ Difference between HashMap and ConcurrentHashMap.
+ 9️⃣ How does HashMap work internally?
+Spring Boot & Hibernate
+ 🔟 Explain Spring Boot Auto-Configuration.
+ 1️⃣1️⃣ Difference between @Component, @Service, and @Repository.
+ 1️⃣2️⃣ How to implement pagination and sorting in Spring Data JPA?
+ 1️⃣3️⃣ Difference between fetch = EAGER and fetch = LAZY in Hibernate.
+ 1️⃣4️⃣ How to handle exceptions globally in Spring Boot?
+Database & SQL
+ 1️⃣5️⃣ SQL query to fetch the second-highest salary.
+ 1️⃣6️⃣ How to find duplicate records in a table?
+ 1️⃣7️⃣ Difference between INNER JOIN and LEFT JOIN.
+DevOps & Others
+ 1️⃣8️⃣ How is Docker used in deployment?
+ 1️⃣9️⃣ What is the difference between REST and SOAP APIs?
+ 2️⃣0️⃣ How does Jenkins work for CI/CD?
+ 2️⃣1️⃣ How to improve application performance in Java?
