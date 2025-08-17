@@ -35,3 +35,63 @@ Microservices & Messaging 📢
 25. Event-Driven Architecture📈: Learn how to build event-driven systems using Spring Boot, Kafka, and REST.
 
 Pro Tips: Understand the concepts and implementation. Interviewers love when you explain how and why, not just what. 💡 
+
+
+
+
+
+
+
+🚀 Java Backend Developer Interview Prep – 2025 Edition 🚀
+
+Here’s a curated checklist of important Java Backend Interview Questions (5–8 Yrs Experience) that can help developers preparing for technical rounds 👇
+
+🟦 Core Java (Java 17 & 21)
+
+ 🔹 Garbage Collection improvements
+ 🔹 CompletableFuture vs Future
+ 🔹 parallelStream() – internals & pitfalls
+ 🔹 Records vs DTOs
+ 🔹 Pattern Matching for switch
+ 🔹 Checked vs Unchecked Exceptions
+ 🔹 String.intern() usage
+ 🔹 Predicate, Consumer, Supplier – real-world use cases
+ 🔹 Sealed Classes in domain modeling
+ 🔹 Safe object publishing in multithreading
+
+🟦 Spring & Spring Boot
+
+ 🔹 Dependency Injection & how Spring implements it
+ 🔹 Internals of @SpringBootApplication
+ 🔹 ApplicationContext vs BeanFactory
+ 🔹 Securing REST APIs with Spring Security
+ 🔹 @RequestMapping vs @GetMapping
+ 🔹 Configuring CORS in REST APIs
+ 🔹 Circular Dependency resolution
+ 🔹 DB integration with Spring Boot
+ 🔹 Actuator endpoints for monitoring
+ 🔹 Spring Boot DevTools for productivity
+
+🟦 Microservices
+
+ 🔹 API Gateway vs Service Registry
+ 🔹 Distributed Tracing with Sleuth & Zipkin
+ 🔹 Idempotent operations in microservices
+ 🔹 Async inter-service communication
+
+🟦 Coding Challenges
+
+ ✅ Reverse words in a sentence (without built-ins)
+ ✅ Find kth largest element in an array
+ ✅ Producer-Consumer using Threads
+
+🟦 Others
+
+ 🔹 Kafka partition rebalancing
+ 🔹 Persistent Volumes in Kubernetes
+ 🔹 SQL – Top 3 highest paid employees per department
+ 🔹 Docker Volumes vs Bind Mounts
+ 🔹 Statelessness in REST APIs
+ 🔹 Monitoring with Prometheus + Grafana
+
+💡 This covers Core Java 21, Spring Boot, Microservices, Cloud, SQL, Kafka, Docker, and Kubernetes — a solid prep roadmap for backend interviews in 2025.
