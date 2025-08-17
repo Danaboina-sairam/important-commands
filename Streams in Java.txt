@@ -1,0 +1,233 @@
+🚀 Master Java Stream API Interview Questions: Part 1 🚀
+
+Enhance your Java skills with these essential Stream API interview questions (Exp : 2 to 4 years):
+
+1. What is the Java Stream API?
+
+2. How does the Stream API differ from traditional loops?
+
+3. What are the main types of streams in Java?
+
+4. How is a stream created in Java?
+
+5. What is the difference between a Stream and a Collection?
+
+6. Can you explain the difference between intermediate and terminal operations?
+
+7. What are some common intermediate operations in Java Streams?
+
+8. What are some examples of terminal operations in Java Streams?
+
+9. What is the difference between map() and flatMap() in Java Streams?
+
+10. How can you filter elements of a Stream?
+
+11. What is the use of the distinct() method in Java Streams?
+
+12. How does the sorted() method work in streams?
+
+13. Can you sort a Stream in reverse order?
+
+14. What is the purpose of the limit() method in streams?
+
+15. How does the skip() method work in Streams?
+
+16. What is the difference between findFirst() and findAny()?
+
+17. How can you check if any, all, or none of the elements in a Stream match a given condition?
+
+18. What is the purpose of the forEach() method in streams?
+
+19. How can you collect the elements of a Stream into a List?
+
+20. What are Collectors in Java Streams?
+
+21. Can you explain how to use Collectors.toMap()?
+
+22. What is the purpose of Collectors.groupingBy()?
+
+23. How does Collectors.partitioningBy() differ from groupingBy()?
+
+24. What is a reduction operation in streams?
+
+25. How does the reduce() method work in Java Streams?
+
+
+
+
+
+🚀 Master Java Stream API Interview Questions: 
+
+Part 2 🚀(Exp : 2 to 4 years)
+
+
+Enhance your Java skills with these essential Stream API interview questions:
+
+26. Can you give an example of using reduce() to calculate a sum?
+
+27. What is the difference between reduce() and collect()? 
+
+28. How can you parallelize a Stream in Java?
+
+29. What are some benefits and drawbacks of parallel streams?
+
+30. How does the Stream API handle null values?
+
+31. Can you create an infinite Stream? If so, how?
+
+32. What is the purpose of the generate() method in Streams?
+
+33. How does the iterate() method differ from generate()?
+
+34. What is the purpose of the peek() method in Streams?
+
+35. How does short-circuiting work in Streams?
+
+36. What is the difference between a sequential stream and a parallel stream?
+
+37. How do you convert a Stream to an array?
+
+38. How can you concatenate two Streams?
+
+39. How do you handle exceptions in Streams?
+
+40. What is a spliterator in Java Streams?
+
+41. How does the Stream API support primitive types like int, double, and long?
+
+42. What are IntStream, LongStream, and DoubleStream?
+
+43. Can you explain how to convert a Stream of primitives to a Stream of objects?
+
+44. What is the difference between mapToInt(), mapToLong(), and mapToDouble()?
+
+45. How do you generate a range of numbers using Streams?
+
+46. What is the purpose of flatMapToInt(), flatMapToLong(), and flatMapToDouble()?
+
+47. How can you merge multiple streams into one?
+
+48. What are infinite streams and how can they be used?
+
+49. How can you create a Stream from an array?
+
+50. How do you create a Stream from a file?
+
+51. What is the Stream.Builder class in Java?
+
+52. How can you handle checked exceptions in a Stream pipeline?
+
+
+
+
+🚀 Master Java Stream API Interview Questions: 
+
+Part - 3 🚀(Exp : 2 to 4 years)
+
+Enhance your Java skills with these essential Stream API interview questions:
+
+53. What is the Collectors.joining() method used for?
+
+54. Can you explain the concept of lazy evaluation in streams?
+
+55. How does the Stream API improve code readability?
+
+56. What is the difference between takeWhile() and dropWhile()?
+
+57. How can you find the maximum or minimum value in a Stream?
+
+58. How does the Stream API support functional programming?
+
+59. Can you use streams with custom objects?
+
+60. What is the purpose of the noneMatch() method?
+
+61. How do you use the count() method in streams?
+
+62. What are parallel streams, and how do they work?
+
+63. How can you debug a Stream pipeline?
+
+64. Can you give an example of using Stream.of()?
+
+65. What is the purpose of the summaryStatistics() method?
+
+66. How does the unordered() method affect a Stream?
+
+67. Can you explain the difference between a stateful and a stateless operation in streams?
+
+68. How do you handle I/O operations with Streams?
+
+69. What is the use of Collectors.mapping()?
+
+70. How do you implement a custom collector in streams?
+
+71. What is a terminal operation in Java Streams?
+
+72. How can you filter duplicate elements in a Stream?
+
+73. What is the purpose of Collectors.toUnmodifiableList()?
+
+74. How does Collectors.teeing() work in Java 12+?
+
+75. Can you explain how to use the groupingByConcurrent() method?
+
+76. How do streams handle multi-threading?
+
+77. What are the potential pitfalls of using parallel streams?
+
+78. How can you process large files efficiently with Streams?
+
+79. Can you sort a Stream of custom objects?
+
+
+
+
+🚀 Master Java Stream API Interview Questions: Part-4 🚀
+
+Enhance your Java skills with these essential Stream API interview questions:
+
+80. What is the difference between Stream.collect() and Stream.reduce()?
+
+81. How do you use Collectors.reducing()?
+
+82. How can you combine predicates in Streams?
+
+83. What is the purpose of Collectors.filtering()?
+
+84. How do you flatten a Stream of lists using flatMap()?
+
+85. How does peek() differ from map()?
+
+86. Can you give an example of using toArray() in Streams?
+
+87. How do you calculate the average of numbers in a Stream?
+
+88. What is the purpose of Collectors.summarizingInt()?
+
+89. How can you create a map from a Stream?
+
+90. What is the advantage of using Stream.generate()?
+
+91. How do you avoid infinite loops with Streams?
+
+92. What is the purpose of the forEachOrdered() method?
+
+93. How do you split a Stream into substreams?
+
+94. How can you apply multiple filters to a Stream?
+
+95. How do you group data in Streams by multiple fields?
+
+96. What is the purpose of Stream.concat()?
+
+97. How can you use Streams with Optional?
+
+98. What are the common use cases for Streams?
+
+99. How do you terminate a Stream pipeline early?
+
+100. Can you explain the use of Collectors.toCollection()?
+
+
+
