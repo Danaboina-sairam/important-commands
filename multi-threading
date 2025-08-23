@@ -98,7 +98,7 @@ REGISTER
 
 COUNTER
 -------
-1.Also know as Program Counter,it points to the instruction which is getting executed.
+1.Also known as Program Counter,it points to the address location of instruction which is getting executed from CODE SEGEMENT.
 2.Increments its counter after successfully execution of the instruction.
 
 Execution order
