@@ -795,15 +795,6 @@ public class Main{
 
 CAS(Compare And Swap-------->it works on the CPU)
 
-otp attempts(point 1 and point 2 same)
-
-
-Resend
-
-1.old otp deactive and new otp active(point 5 and point 7 same)
-2.we can able to resend otp any no of times(point 6)
-
-
 
 
 
