@@ -957,7 +957,86 @@ CompleteableFuture
 2.thenApply() and thenApplyAsync()---------->no ordering
 3.thenCompose() and thenComposeAsync()---------->ordering
 4.thenAccept() and thenAcceptAsync()----------->end part 
-5.thenCombine() and thenCombineAsync()--------->combine 2 completeable futures
+5.thenCombine() and thenCombineAsync()--------->combine 2 completeable future
+
+
+
+
+
+
+| Feature             | FixedThreadPool        | CachedThreadPool              | ForkJoinPool                       |
+| ------------------- | ---------------------- | ----------------------------- | ---------------------------------- |
+| **Thread Count**    | Fixed (user-defined)   | Dynamic (grows as needed)     | Default = number of CPU cores      |
+| **Task Queue**      | Unbounded queue        | SynchronousQueue (no queue)   | Work-stealing queues (per thread)  |
+| **Thread Reuse**    | Yes                    | Yes                           | Yes                                |
+| **Idle Timeout**    | No                     | Yes (60 seconds)              | Yes (managed internally)           |
+| **Thread Creation** | Reuses fixed threads   | Creates new threads on demand | Uses worker threads per CPU core   |
+| **Use Case**        | Steady/controlled load | Many short-lived tasks        | Parallel recursive CPU-bound tasks |
+| **Risk**            | Task pile-up (memory)  | Unbounded threads → OOM risk  | Complex to debug & manage threads  |
+
+
+
+
+
+
+| Case | Scenario                                                           | Submission Queue  | Work-Stealing Deques         | Thread States                     | Thread-1 Action                                           |
+| ---- | ------------------------------------------------------------------ | ----------------- | ---------------------------- | --------------------------------- | --------------------------------------------------------- |
+| 1    | 2 threads, 3 tasks in queue; Thread-2 busy, forks subtask-1        | Non-empty         | `subtask-1` in Thread-2      | Thread-1 free, Thread-2 busy      | Picks next task from submission queue                     |
+| 2    | 2 threads, 3 tasks; `subtask-1` already in deque; Thread-2 busy    | Non-empty         | `subtask-1` in Thread-2      | Thread-1 free, Thread-2 busy      | Picks next task from submission queue                     |
+| 3    | 2 threads, no submission queue; Thread-2 forks `subtask-1`         | Empty             | `subtask-1` in Thread-2      | Thread-1 free, Thread-2 busy      | Steals `subtask-1` from Thread-2 and processes it         |
+| 4    | 2 threads, 3 tasks in queue; both threads idle, deques empty       | Non-empty         | Empty                        | Thread-1 and Thread-2 idle        | Thread-1 picks task from submission queue                 |
+| 5    | Thread-1 forks multiple subtasks; Thread-2 idle                    | Depends           | `sub1`, `sub2`, `sub3` in T1 | Thread-1 busy, Thread-2 idle      | Thread-2 steals `sub1` (FIFO) from Thread-1               |
+| 6    | Thread-1 forks subtasks but **never joins** them; Thread-2 idle    | Depends           | `sub1`, `sub2` in T1         | Thread-1 busy, Thread-2 idle      | Thread-2 steals and processes, but results might be lost  |
+| 7    | Deep recursion forks thousands of tasks in Thread-1; Thread-2 busy | Depends           | Large deque in Thread-1      | Thread-1 very busy, Thread-2 busy | Thread-1 may starve own earlier tasks (LIFO), risk of OOM |
+| 8    | All threads idle; new task submitted asynchronously                | Becomes non-empty | Empty                        | Thread-1 and Thread-2 idle        | Thread-1 or Thread-2 picks new task from submission queue |
+
+
+
+Submit(Runnable task)
+
+
+
+shutdown()
+
+awaitTermination()
+
+shutdownNow()
+
+
+
+schedule(Runnable command, long delay, TimeUnit unit)	Executes a one-time task after a specified delay.
+schedule(Callable<V> callable, long delay, TimeUnit unit)	Schedules a Callable to execute after a delay.
+scheduleAtFixedRate(Runnable command, long initialDelay, long period, TimeUnit unit)	Repeatedly executes the task at a fixed rate, starting after the initial delay.
+scheduleWithFixedDelay(Runnable command, long initialDelay, long delay, TimeUnit unit)	Repeatedly executes the task with a fixed delay between the end of one execution and the start of the next.
+shutdown()	Gracefully shuts down the executor after completing current tasks.
+shutdownNow()	Attempts to stop all executing tasks immediately.
+getQueue()	Returns the queue of tasks waiting to be executed.
+getPoolSize()	Returns the current number of threads in the pool.
+getActiveCount()	Returns the number of actively executing threads.
+
+
+
+
+Executor
+
+ThreadPoolExecutor ✅
+ScheduledThreadPoolExecutor ✅
+ForkJoinPool ✅   
+
+vs
+
+Executor executor1 = Executors.newFixedThreadPool(4);         // ThreadPoolExecutor
+Executor executor2 = Executors.newCachedThreadPool();         // ThreadPoolExecutor
+Executor executor3 = Executors.newSingleThreadExecutor();     // ThreadPoolExecutor
+Executor executor4 = Executors.newScheduledThreadPool(2);     // ScheduledThreadPoolExecutor
+Executor executor5 = ForkJoinPool.commonPool();               // ForkJoinPool
+
+
+
+
+JVM---------------->platform thread
+
+platform thread around the os thread
 
 
 
