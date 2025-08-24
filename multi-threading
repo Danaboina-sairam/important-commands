@@ -156,6 +156,49 @@ Challenges
 
 
 
+runnable interface(not override run method)
+
+thread class(override run method)
+
+
+
+runnable(waiting for cpu)-------------->Blocked,Waiting,Timed Waiting
+
+running(got the cpu)
+
+
+
+Blocked------------>Release monitor logs
+
+Waiting------------->Release monitor logs
+
+Timed Waiting------->Do not release monitor logs
+
+
+
+start--------->keep it in runnable state(runnable---->waiting for cpu)
+
+
+
+Runnable interface------->there is target(concreate class)
+
+Thread class------------>there is no target
+
+
+
+
+Runnable interface----------->We are calling run method on thread class then internally calling concreate class(here concreate class is called as target)
+
+Thread class------------>We are calling run method on concreate class
+
+
+
+
+
+start and running(both are different)
+
+
+stop or teriminate(both are same)--------------------->(new(creation),runnable(start),blocked,waiting,timed waiting)
 
 
 
