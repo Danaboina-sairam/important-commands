@@ -203,6 +203,604 @@ stop or teriminate(both are same)--------------------->(new(creation),runnable(s
 
 
 
+
+Monitor locks------------>using synchronized method or block
+
+
+Note:- monitor locks priorty for synchronized method or block assuming same
+
+
+Monitor locks releases
+----------------------
+
+1.blocked(making db calls time)
+
+2.waiting(wait())
+
+Monitor locks not releases
+--------------------------
+
+3.timed waiting(Thread.sleep(5000))
+
+
+
+
+Power On
+   ↓
+CPU executes BIOS
+   ↓
+OS loads (Linux, Windows, etc.)
+   ↓
+User runs java -jar
+   ↓
+OS creates process for JVM
+   ↓
+JVM starts and runs Spring Boot
+   ↓
+CPU executes bytecode via JVM
+
+
+
+
+
+| Component               | Count    | Notes                                          |
+| ----------------------- | -------- | ---------------------------------------------- |
+| JVM Process             | 1        | Created by OS to run your app                  |
+| Main Thread             | 1        | Executes main() method                       |
+| Internal Spring Threads | Many     | Tomcat, scheduler, async, etc.                 |
+| User-Defined Threads    | Optional | You can create via Thread, ExecutorService |
+| Worker Threads          | Many     | Created as needed by Spring or user code       |
+
+
+
+
+Operating System
+   └── Starts JVM Process
+         └── Runs Spring Boot App (main class)
+               ├── Main Thread
+               ├── Internal Spring Threads (Tomcat, Scheduler, etc.)
+               └── User-Defined Threads (optional)
+
+
+
+JVM bytecode
+   ↓ (interpreted or JIT compiled)
+Native Instructions
+   ↓
+System Call to OS
+   ↓
+OS schedules it on CPU
+   ↓
+CPU executes the code
+
+
+
+
+
+Thread priority:- it is just hint but not gurrantee to follow the order
+
+
+Daemon thread:- it is supporting thread such as garbage collector in java,auto save of intellij editor
+
+join()
+------
+
+1.in threads,whenever join() applied on the object then that thread execute first.
+
+2.remaining threads holding the execution.
+
+
+
+Locks and Semaphores
+--------------------
+
+locks do not depend on object like synchronize method
+
+
+system design
+
+db locks
+
+
+locks
+
+1.ReentrantLock(same or different object allow at a time only one)
+---------------
+
+case 1:- with same object
+
+public class SharedResource{
+
+    boolean isAvailable=false;
+    ReentrantLock lock=new ReentrantLock();
+    
+
+    public void producer(){
+        try{
+               lock=lock();
+               System.out.println("lock acquired by:"+Thread.currentThread().getName());
+               isAvailable=true;
+               Thread.sleep(4000);
+            }
+            catch(Exception e){
+
+            }
+            finally{
+                 lock.unlock();
+                 System.out.printl("Lock release by:"+Thread.currentThread().getName());
+            }
+    }
+}
+
+
+public class Main{
+
+     public static void Main(String args[]){
+
+         SharedResource resource=new SharedResource();             //with same object
+
+         Thread th1=new Thread(()->{
+              resource.producer();
+         });
+
+         Thread th2=new Thread(()->{
+              resource.producer();
+          });
+          th1.start();
+          th2.start();
+     }
+}
+
+
+
+
+case 2:- different object
+
+public class SharedResource{
+
+    boolean isAvailable=false;
+    
+
+    public void producer(ReentrantLock lock){
+        try{
+               lock=lock();
+               System.out.println("lock acquired by:"+Thread.currentThread().getName());
+               isAvailable=true;
+               Thread.sleep(4000);
+            }
+            catch(Exception e){
+
+            }
+            finally{
+                 lock.unlock();
+                 System.out.printl("Lock release by:"+Thread.currentThread().getName());
+            }
+    }
+}
+
+
+public class Main{
+
+     public static void Main(String args[]){
+
+	 ReentrantLock lock=new ReentrantLock(); 
+
+         SharedResource resource1=new SharedResource();         //with different object
+
+         Thread th1=new Thread(()->{
+              resource1.producer(lock);
+         });
+
+         SharedResource resource2=new SharedResource();        //with different object
+
+         Thread th2=new Thread(()->{
+              resource2.producer(lock);
+          });
+
+          th1.start();
+          th2.start();
+     }
+}
+
+
+
+ReadWriteLock
+-------------
+
+ReadLock(shared lock):- more than 1 thread can acquire the read lock.
+
+WriteLock(exclusive lock):- only 1 thread can acquire the write lock.
+
+
+IMPORTANT
+---------
+
+Read High(1000 times) and Write Low(10 times)
+
+
+public class SharedResource{
+
+    boolean isAvailable=false;
+    
+
+    public void producer(ReadWriteLock lock){
+        try{
+               lock.readLock().lock();
+               System.out.println("Read lock acquired by:"+Thread.currentThread().getName());
+               Thread.sleep(4000);
+            }
+            catch(Exception e){
+
+            }
+            finally{
+                 lock.readLock().unlock();
+                 System.out.printl("Read lock release by:"+Thread.currentThread().getName());
+            }
+    }
+
+
+    public void coonsumer(ReadWriteLock lock){
+        try{
+               lock.writeLock().lock();
+               System.out.println("write lock acquired by:"+Thread.currentThread().getName());
+               isAvailable=true;
+               Thread.sleep(4000);
+            }
+            catch(Exception e){
+
+            }
+            finally{
+                 lock.writeLock().unlock();
+                 System.out.printl("Write lock release by:"+Thread.currentThread().getName());
+            }
+    }
+}
+
+
+
+public class Main{
+
+     public static void Main(String args[]){ 
+
+         SharedResource resource=new SharedResource();         
+         ReadWriteLock lock=new ReentrantReadWriteLock();
+
+         Thread th1=new Thread(()->{
+              resource.producer(lock);
+         });
+
+         Thread th2=new Thread(()->{
+              resource.producer(lock);
+         });
+
+         SharedResource resource1=new SharedResource();        
+
+         Thread th3=new Thread(()->{
+              resource1.consume(lock);
+          });
+
+          th1.start();
+          th2.start();
+          th3.start();
+     }
+}
+
+
+
+StampedLock(Read/Write Lock ,Optimistic Read)
+-----------
+
+1.Support Read/Write Lock functionality like ReadWriteLock
+
+
+types of locks
+
+1.pessimistic locks(synchronized,ReentrantLock,ReadWriteLock(shared/exclusive locks))
+2.optimistic locks(no lock acquired)
+
+1.pessimistic locks
+-------------------
+
+public class SharedResource{
+
+    boolean isAvailable=false;
+
+    StampedLock lock=new StampedLock();
+    
+
+    public void producer(){
+        long stamp=lock.readLock();
+
+        try{
+               System.out.println("Read lock acquired by:"+Thread.currentThread().getName());
+               isAvailable=true;
+               Thread.sleep(4000);
+            }
+            catch(Exception e){
+
+            }
+            finally{
+                 lock.unlockRead(stamp);
+                 System.out.printl("Read lock release by:"+Thread.currentThread().getName());
+            }
+    }
+
+
+    public void coonsumer(){
+
+        long stamp=lock.writeLock();
+
+        try{
+               System.out.println("write lock acquired by:"+Thread.currentThread().getName());
+               isAvailable=false;
+            }
+            catch(Exception e){
+
+            }
+            finally{
+                 lock.unlockWrite(stamp);
+                 System.out.printl("Write lock release by:"+Thread.currentThread().getName());
+            }
+    }
+}
+
+
+public class Main{
+
+     public static void Main(String args[]){ 
+
+         SharedResource resource=new SharedResource();         
+        
+         Thread th1=new Thread(()->{
+              resource.producer();
+         });
+
+         Thread th2=new Thread(()->{
+              resource.producer();
+         });       
+
+         Thread th3=new Thread(()->{
+              resource.consume();
+          });
+
+          th1.start();
+          th2.start();
+          th3.start();
+     }
+}
+
+
+2.optimistic locks(it works on the DB)
+
+public class SharedResource{
+  int a=10;
+  StampedLock lock=new StampedLock();
+  public void producer(){
+      long stamp=lock.tryOptimisticRead();
+      try{
+          System.out.println("Taken optimistic lock");
+          a=11;
+          Thread.sleep(6000);
+          if(lock.validate(stamp)){
+              System.out.println("updated a value successfully");
+           }
+           else {
+               System.out.println("rollback of work");
+               a=10;//rollback
+           }
+       }
+       catch(Exception e){
+       }
+    }
+
+
+     public void consumer(){
+
+          long stamp=lock.writeLock();
+          System.out.println("Write lock acquired by:"+Thread.currentThread().getName());
+   
+          try{
+             System.out.println("performing work");
+             a=9;
+          }
+           finally{
+              locks.unlockWrite(stamp);
+              System.out.println("Write lock released by:"+Thread.currentThread().getName());
+          }
+     }
+}
+
+
+public class Main{
+
+     public static void Main(String args[]){ 
+
+         SharedResource resource=new SharedResource();         
+        
+         Thread th1=new Thread(()->{
+              resource.producer();
+         });    
+
+         Thread th2=new Thread(()->{
+              resource.consumer();
+          });
+
+          th1.start();
+          th2.start();
+     }
+}
+
+
+Semaphore Lock
+--------------
+
+public class SharedResource{
+
+   boolean isAvailable=false;
+  
+   Semaphore lock=new Semaphore(2);
+
+   public void producer(){
+       
+       try{
+            lock.acquire();
+            System.out.println("Lock acquired by:"+Thread.currentThread().getName());
+            isAvailable=true;
+            Thread.sleep(4000);
+       }
+       catch(Exception e){
+
+       }
+       finally{
+             lock.release();
+             System.out.println("Lock release by:"+Thread.currentThread().getName());
+       }
+
+}
+
+
+
+public class Main{
+
+     public static void Main(String args[]){ 
+
+         SharedResource resource=new SharedResource();         
+        
+         Thread th1=new Thread(()->{
+              resource.producer();
+         });    
+
+         Thread th2=new Thread(()->{
+              resource.consumer();
+          });
+
+         Thread th3=new Thread(()->{
+              resource.consumer();
+          });
+
+
+         Thread th4=new Thread(()->{
+              resource.consumer();
+          });
+
+
+          th1.start();
+          th2.start();
+          th3.start();
+          th4.start();
+     }
+}
+
+
+
+synchronized(monitor lock----------->wait and notify)
+
+
+
+condition
+---------
+
+await()------------>wait()
+
+signal()----------->notify()
+
+signalAll()-------->notifyAll()
+
+
+
+public class SharedResource {
+
+    boolean isAvailable=false;
+    ReentrantLock lock=new ReentrantLock();
+    Condition condition=lock.newCondition();
+
+    public void producer(){
+       try{
+           lock.lock();
+           System.out.println("Produce lock acquired by:"+Thread.currentThread().getName());
+           if(isAvailable){
+              //already available,thread has to wait for it to consume
+              System.out.println("Produce thread is waiting:"+Thread.currentThread().getName());
+              condition.await();
+          }
+          isAvailable=true;
+          condition.signal();
+       }
+       catch(Exception e){
+       }
+        finally{
+             lock.unlock();
+             System.out.println("Produce lock release by:"+Thread.currentThread().getName());
+        }
+    }
+
+     public void consume(){
+          try{
+              Thread.sleep(1000);
+              lock.lock();
+              System.out.println("Consume lock acquired by:"+Thread.currentThread().getName());
+              if(!isAvailable){
+                  //already not available , thread has to wait for it to produced
+                   System.out.println("Consumer thread is waiting:"+Thread.currentThread().getName());
+                   condition.await();
+               }
+               isAvailable=false;
+               condition.signal();
+           }
+           catch(Exception e){
+           }
+           finally{
+               lock.unlock();
+               System.out.println("Consume lock release by:"+Thread.currentThread().getName());
+           }
+      }
+}
+
+
+
+public class Main{
+    public static void main(String args[]){
+         SharedResource resource=new SharedResource();
+         Thread th1=new Thread(()->{
+             for(int i=0;i<2;i++){
+                 resource.producer();
+              }
+          });
+
+          Thread th2=new Thread(()->{
+              for(int i=0;i<2;i++){
+                 resource.consume();
+              }
+          });
+ 
+          th1.start();
+          th2.start();
+     }
+}
+
+
+
+
+
+
+
+CAS(Compare And Swap-------->it works on the CPU)
+
+otp attempts(point 1 and point 2 same)
+
+
+Resend
+
+1.old otp deactive and new otp active(point 5 and point 7 same)
+2.we can able to resend otp any no of times(point 6)
+
+
+
+
+
+
+
+
 Executor(I)
 --------
 
