@@ -1,8 +1,16 @@
 multi threading
 
-JDK----->compiler
+JDK----->compiler(byte code)
 
-JVM----->executor
+JVM----->executor(machine code)
+
+compiler
+--------
+Javac Test.java
+
+executor(JVM will create process here onwards only)
+--------
+Java Test
 
 
 NOTE:- 
@@ -16,9 +24,24 @@ Hierachy
 
 CPU->JVM->PROCESS->THREADS
 
-Process :- process is nothing but program in excution(Note:- excution only done by JVM only)
+Process :- 
 
-Thread :- thread is nothing but sequence of instructions set in process(threads run independent of cpu)
+1.process is nothing but instace of a program that is getting excuted(Note:- excution only done by JVM only)
+2.process has own resources such as memory,thread etc.os allocate resources to process when its created.
+
+Thread :- 
+
+1.thread is nothing but sequence of instructions set in process(threads run independent of cpu)
+2.thread is light weight process
+3.one process can have multiple threads
+4.when process is created,it start with 1 thread and that initial thread is 'main thread' from that we can create multiple
+  threads to perform task concurrently.
+
+
+How much memory does process gets??
+---------------------------------
+
+java -Xms512m -Xmx2g MainClassName
 
 NOTE:-
 ----
