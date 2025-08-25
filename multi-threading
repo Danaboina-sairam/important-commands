@@ -190,6 +190,29 @@ Challenges
 
 
 
+class extend only 1 class
+
+class implements more than 1 class
+
+runnable interface execution
+----------------------------
+1.first call run method of thread class
+2.internally thread class checks (target!=null) 
+  then call the run method of runnable interface implemented class method that is run method
+
+
+NOTE:-
+1.IT industry uses runnable interface 
+
+Thread class execution
+----------------------
+1.here directly calling the override method in sub class of Thread class
+
+NOTE:-
+
+1.if provided override method in sub class of thread then not involved Thread class run method
+2.if not provided override method in sub class of thread then involved default Thread class run method
+
 
 runnable interface(not override run method)
 
