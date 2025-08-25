@@ -135,6 +135,14 @@ Code segment->Counter->Thread
 NOTE:- All these are managed by JVM
 
 
+
+OS schedules(also JVM schedulers) or manages the thread
+-------------------------------------------------------
+
+os schedules thread for execution then that is shared to cpu
+(in between cpu register and thread register ,there context switching is happening)
+
+
 SCENARIOS
 ---------
 
