@@ -13,6 +13,10 @@ executor(JVM will create process here onwards only)
 Java Test
 
 
+1.process will created
+2.JVM instance is allocated for process------------->Interpreter/JIT Compiler --------------->convert byte code to machine code
+
+
 NOTE:- 
 
 1.in multi threading, we are focusing on JVM only
@@ -121,7 +125,7 @@ REGISTER
 
 COUNTER
 -------
-1.Also known as Program Counter,it points to the address location of instruction which is getting executed from CODE SEGEMENT.
+1.Also known as Program Counter,it points to the address location of instruction(particular thread) which is getting executed from CODE SEGEMENT.
 2.Increments its counter after successfully execution of the instruction.
 
 Execution order
