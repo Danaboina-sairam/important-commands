@@ -435,7 +435,7 @@ public class MonitorLockMain{
    }
 }
 
-
+NOTE:-at a time only 1(no matter of method or block)
 
 NOTE:- run method internally calling critical section using synchronized method or block
 
