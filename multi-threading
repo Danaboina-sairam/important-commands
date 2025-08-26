@@ -329,6 +329,47 @@ Monitor locks------------>using synchronized method or block
 Note:- monitor locks priorty for synchronized method or block assuming same
 
 
+public classs MonitorLockExample{
+
+	public synchronized void task1(){
+             //do something
+             try{
+                 System.out.println("inside task1");
+                 Thread.sleep(10000);
+             } 
+             catch(Exception e){
+                //exception handling here
+             }
+        }
+        
+
+        public void task2(){
+            System.out.println("task2 , but before synchronized");
+            synchronized(this){
+                 System.out.println("task2, inside synchronized");
+            }
+       }
+      
+     
+       public void task3(){
+            System.out.println("task3");
+       }
+}
+
+
+public static void main(String args[]){
+     MonitorLockExample obj=new MonitorLockExample();
+     Thread t1=new Thread(()->{ obj.task1(); });
+     Thread t2=new Thread(()->{ obj.task2(); });
+     Thread t3=new Thread(()->{ obj.task3(); });
+
+     t1.start();
+     t2.start();
+     t3.start();
+}
+
+
+
 Monitor locks releases
 ----------------------
 
