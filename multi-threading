@@ -188,11 +188,13 @@ Challenges
 2.Synchronized overhead.
 3.Testing and Debugging is difficult.
 
+why we have 2 ways to create threads
+------------------------------------
 
+1.class extend only 1 class
 
-class extend only 1 class
+2.class implements more than 1 class
 
-class implements more than 1 class
 
 runnable interface execution
 ----------------------------
@@ -214,27 +216,13 @@ NOTE:-
 2.if not provided override method in sub class of thread then involved default Thread class run method
 
 
+
+IMPORTANT POINTS
+----------------
+
 runnable interface(not override run method)
 
 thread class(override run method)
-
-
-runnable(waiting for cpu)-------------->Blocked,Waiting,Timed Waiting
-
-running(got the cpu)
-
-
-
-Blocked(file or db operations)------------>Release monitor logs
-
-Waiting------------->Release monitor logs
-
-Timed Waiting(Thread.sleep(1000))------->Do not release monitor logs
-
-
-
-start--------->keep it in runnable state(runnable---->waiting for cpu)
-
 
 
 Runnable interface------->there is target(concreate class)
@@ -253,10 +241,11 @@ Thread class------------>We are calling run method on concreate class
 
 states(new,runnable,terminated,blocked,waiting,timed waiting)
 ------
+runnable state---------------->(runnable and running)
+--------------
 
 not state(running)
 ---------
-
 
 
 new-------->creation
@@ -272,6 +261,23 @@ waiting-------->wait() and notify()
 timed waiting------>Thread.sleep(1000)
 
 stop or teriminate(both are same)
+
+
+
+Blocked(file or db operations)------------>Release monitor logs
+
+Waiting------------->Release monitor logs
+
+Timed Waiting(Thread.sleep(1000))------->Do not release monitor logs
+
+
+
+start--------->keep it in runnable state(runnable---->waiting for cpu)
+
+
+runnable(waiting for cpu)-------------->Blocked,Waiting,Timed Waiting
+
+running(got the cpu)
 
 
 
