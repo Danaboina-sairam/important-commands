@@ -449,7 +449,7 @@ public class SharedResource{
     //synchronized put the monitor lock
     public synchronized void addItem(){
         itemAvailable=true;
- System.out.println("Item added by:"+Thread.currentThread().getName()+" and invoking all threads which a
+ System.out.println("Item added by:"+Thread.currentThread().getName()+" and invoking all threads which are waiting");
         notifyAll();
     }
 
