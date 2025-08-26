@@ -219,18 +219,17 @@ runnable interface(not override run method)
 thread class(override run method)
 
 
-
 runnable(waiting for cpu)-------------->Blocked,Waiting,Timed Waiting
 
 running(got the cpu)
 
 
 
-Blocked------------>Release monitor logs
+Blocked(file or db operations)------------>Release monitor logs
 
 Waiting------------->Release monitor logs
 
-Timed Waiting------->Do not release monitor logs
+Timed Waiting(Thread.sleep(1000))------->Do not release monitor logs
 
 
 
@@ -245,19 +244,34 @@ Thread class------------>there is no target
 
 
 
-Runnable interface----------->We are calling run method on thread class then internally calling concreate class(here concreate class is called as target)
+Runnable interface----------->We are calling run method on thread class then internally calling concreate class
+                              (here concreate class is called as target)
 
 Thread class------------>We are calling run method on concreate class
 
 
 
+states(new,runnable,terminated,blocked,waiting,timed waiting)
+------
+
+not state(running)
+---------
 
 
-start and running(both are different)
 
+new-------->creation
 
-stop or teriminate(both are same)--------------------->(new(creation),runnable(start),blocked,waiting,timed waiting)
+runnable-------->start
 
+runnable-------->start (runnable and running both are different)
+
+blocked--------->file or db operations
+
+waiting-------->wait() and notify()
+
+timed waiting------>Thread.sleep(1000)
+
+stop or teriminate(both are same)
 
 
 
