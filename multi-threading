@@ -369,6 +369,9 @@ public static void main(String args[]){
 }
 
 
+NOTE:- run method internally calling critical section using synchronized method or block
+
+
 
 Monitor locks releases
 ----------------------
