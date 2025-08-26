@@ -439,6 +439,181 @@ NOTE:-at a time only 1(no matter of method or block)
 
 NOTE:- run method internally calling critical section using synchronized method or block
 
+Example:3
+---------
+
+public class SharedResource{
+
+    boolean itemAvailable=false;
+
+    //synchronized put the monitor lock
+    public synchronized void addItem(){
+        itemAvailable=true;
+ System.out.println("Item added by:"+Thread.currentThread().getName()+" and invoking all threads which a
+        notifyAll();
+    }
+
+    public synchronized void consumeItem(){
+ System.out.println("ConsumeItem method invoked by:"+Thread.currentThread().getName
+
+   //using while loop to avoid "spurious wake-up", sometimes because of system noise
+
+   while(!itemAvailable){
+
+       try{
+ System.out.println("Thread"+Thread.currentThread().getName()+" is waiting now");
+          wait();    //it releases the monitor lock
+       }
+       catch(Exception e){
+           //handle exception here
+       }
+
+       System.out.println("Item Consumed by:"+Thread.currentThread().getName());
+       itemAvailable=false;
+    }
+}
+
+
+public class ProduceTask implements Runnable{
+
+    SharedResource sharedResource;
+   
+    ProduceTask(SharedResource resource){
+         this.sharedResource= resource;
+    }
+  
+    @Override
+    public void run(){
+        System.out.println("Producer thread:"+Thread.currentThread().getName());
+        
+        try{
+            Thread.sleep(5000l);
+        }
+        catch("Exception e){
+            //handle any exception here
+        }
+        sharedResource.addItem();
+    }
+}
+
+
+public class ConsumeTask implements Runnable{
+  
+    SharedResource sharedResource;
+  
+    ConsumeTask(SharedResource resource){
+        this.sharedResource=resource;
+    }
+
+    @override
+    public void run(){
+        System.out.println("Consumer thread:"+Thread.currentThread().getName());
+        sharedResource.consumeItem();
+    }
+}
+
+
+public class Main{
+
+     public static void main(String args[]){
+
+         System.out.println("Main method start");
+
+         SharedResource sharedResource=new SharedResource();
+  
+
+         //producer thread
+
+         Thread producerThread=new Thread(new ProducerTask(sharedResource));
+        
+         //consumer thread
+
+         Thread consumerThread=new Thread(new ConsumeTask(sharedResource));
+
+         //thread is in "RUNNABLE state"
+
+         producerThread.start();
+         consumerThread.start();
+
+         System.out.println("Main method end");
+     }
+}
+
+
+
+or use lambda expression,instead of creating ProduceTask and ConsumeTask class
+
+
+Thread consumerThread=new Thread(()->{
+
+    System.out.println("Consumer Thread:"+Thread.currentThread().getName());
+    sharedResouce.cosumeItem();
+});
+    
+
+
+
+
+
+Example:4
+---------
+
+
+public class SharedResource{
+    boolean isItemPresent=false;
+    public synchronized void addItem(){
+        isItemPresent=true;
+        System.out.println("Producer thread calling the notify method");
+        notifyAll();
+    }
+
+    public synchronized void consumeItem(){
+        System.out.println("Consumer thread inside consumeItem method");
+        if(!isItemPresent){
+            try{
+                System.out.println("Consumer thread is waiting");
+                wait();//release all the monitor lock
+             }
+             catch(Exception e){
+                 //exception handling goes here
+             }
+         }
+         isItemPresent=false;
+     }
+}   
+
+
+public class Main{
+    public static void main(String args[]){
+        SharedResource sharedResourceObj=new SharedResource();
+        
+        Thread producerThread=new Thread(()->{
+
+             try{
+                 Thread.sleep(3000);
+             }
+             catch(Exception e){
+                 //exception handling here
+             }
+             sharedResourceObj.addItem();
+         });
+         
+         producerThread.start();
+         producerThread.start();
+    }
+}   
+
+
+
+Question:
+---------
+
+Two threads,a producer and a consumer,share a common, fixed-size buffer as a queue.
+the producer's job is to generate data and put it into the buffer,
+while the consumer's job is to consume the data from the buffer.
+the problem is to make sure that the producer won't produce data if  the 
+buffer is full, and the consumer won't consume data if the buffer is empty.
+
 
 
 Monitor locks releases
