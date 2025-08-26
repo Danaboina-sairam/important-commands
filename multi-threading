@@ -258,7 +258,7 @@ blocked--------->file or db operations
 
 waiting-------->wait() and notify()
 
-timed waiting------>Thread.sleep(1000)
+timed waiting------>Thread.sleep(1000) and join()
 
 stop or teriminate(both are same)
 
@@ -280,6 +280,47 @@ runnable(waiting for cpu)-------------->Blocked,Waiting,Timed Waiting
 running(got the cpu)
 
 
+new
+---
+1.Thread has been created but not started
+2.its just an object in memory
+
+runnable
+--------
+1.Thread is ready to run
+2.waiting for cpu time
+
+running
+-------
+1.when thread start executing its code
+
+blocked
+-------
+Different scenarios where runnable thread goes into the blocking state
+1.i/o:- like reading from file or database
+2.lock acquired:- if thread want to lock on a resource which is locked by other thread,it has to wait.
+NOTE:- Releases all the MONITOR LOCKS
+
+Waiting
+-------
+1.Thread goes into this state when we call the wait() method,makes it non-runnable
+2.it goes back to runnable,once we call notify() or notifyAll() method
+NOTE:- Releases all the MONITOR LOCKS
+
+Timed waiting
+-------------
+1.Thread waits for specific period of time and comes back to runnable state,after specific conditions met. like sleep() and join()
+
+NOTE:- Do not Releases any MONITOR LOCKS
+
+Terminated
+----------
+1.life thread is completed ,it can not be started back again.
+
+
+
+
+Monitor lock on-------------->runnable state
 
 
 Monitor locks------------>using synchronized method or block
