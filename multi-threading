@@ -829,19 +829,141 @@ CPU executes the code
 
 
 
-
-
-Thread priority:- it is just hint but not gurrantee to follow the order
-
-
-Daemon thread:- it is supporting thread such as garbage collector in java,auto save of intellij editor
-
 join()
 ------
 
 1.in threads,whenever join() applied on the object then that thread execute first.
 
 2.remaining threads holding the execution.
+
+JOIN:
+-----
+
+--When JOIN method is invoked on a thread object.Current thread will be
+  blocked and waits for the specific thread to finish.
+
+--It is helpful when we want to coordinate between threads or to ensure 
+  we complete certain task before moving ahead.
+
+
+public class SharedResource{
+
+	boolean isAvailable=false;
+	
+	public synchronized void produce(){
+	
+	    System.out.println("Lock  acquired");
+		isAvailable=true;
+		try{
+		    Thread.sleep(8000);
+		}
+		catch(Exception e){
+			//handle some exception here
+		}
+		System.out.println("Lock release");
+	}
+}
+
+
+public class Main{
+
+	public static void main(String args[])
+	{
+	    SharedResource resource=new SharedResource();
+		
+		System.out.println("Main thread started");
+		
+		Thread th1=new Thread(()->{
+			System.out.println("Thread1 calling produce method");
+			resource.produce();
+		});
+		
+		th1.start();
+		
+		try{
+		    System.out.println("Main thread is finishing its work");
+			th1.join();
+		}
+		catch(Exception e){
+		}
+	
+		System.out.println("Main thread is finishing its work");
+	}
+}
+
+
+
+Thread priority:- it is just hint but not gurrantee to follow the order
+
+
+
+Thread Priority
+---------------
+
+-Priorities are integer ranging from 1 to 10
+
+1->low priority
+
+10->highest priority
+
+-Even we set the thread priority while creation,its not gurantted to follow any
+ specific order,its just a hint to thread scheduler which to execute next.(but its not strict rule)
+ 
+ -When new thread is created,it inherit the priority of its parent thread.
+ 
+ -we can set custom priority using "setPriority(int priority)" method
+ 
+ 
+
+public class SharedResource{
+
+	boolean isAvailable=false;
+	
+	public synchronized void produce(){
+	
+	    System.out.println("Lock  acquired");
+		isAvailable=true;
+		try{
+		    Thread.sleep(8000);
+		}
+		catch(Exception e){
+			//handle some exception here
+		}
+		System.out.println("Lock release");
+	}
+}
+
+
+public class Main{
+
+	public static void main(String args[])
+	{
+	    SharedResource resource=new SharedResource();
+		
+		System.out.println("Main thread started");
+		
+		Thread th1=new Thread(()->{
+			System.out.println("Thread1 calling produce method");
+			resource.produce();
+		});
+		
+		th1.setPriority(Thread.MAX_PRIORITY);
+		
+		th1.start();
+		
+		try{
+		    System.out.println("Main thread is finishing its work");
+			th1.join();
+		}
+		catch(Exception e){
+		}
+	
+		System.out.println("Main thread is finishing its work");
+	}
+}
+
+
+Daemon thread:- it is supporting thread such as garbage collector in java,auto save of intellij editor
 
 
 
