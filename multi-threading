@@ -682,6 +682,88 @@ public class ProducerConsumerLearning {
 
 
 
+Why Stop,Resume,Suspended method is deprecated?
+-----------------------------------------------
+
+
+STOP :  Terminates the thread abruptly,No lock release,No resource clean up happens.
+
+Suspend : Put the Thread on hold(Suspend) for temporarily.No lock is release too.
+
+RESUME : Used to Resume the executio of suspended thread.
+
+Both this operation could led to issues like deadlock.
+
+lets see an example of it
+
+
+public class SharedResource{
+
+	boolean isAvailable=false;
+	
+	public synchronized void produce(){
+	
+	    System.out.println("Lock  acquired");
+		isAvailable=true;
+		try{
+		    Thread.sleep(8000);
+		}
+		catch(Exception e){
+			//handle some exception here
+		}
+		System.out.println("Lock release");
+	}
+}
+
+
+public class Main{
+
+	public static void main(String args[])
+	{
+	    SharedResource resource=new SharedResource();
+		System.out.println("Main thread started");
+		
+		Thread th1=new Thread(()->{
+			System.out.println("Thread1 calling produce method");
+			resource.produce();
+		});
+		
+		Thread th2=new Thread(()->{
+			try{
+				Thread.sleep(1000);
+			}
+			catch(Exception e){
+			}
+			System.out.println("Thread2 calling produce method");
+			resource.produce();
+		});
+		
+		th1.start();
+		th2.start();
+		
+		try{
+			Thread.sleep(3000);
+		}
+		catch(Exception e){
+		}
+			
+			
+		System.out.println("Thread1 is suspended");
+		th1.suspend();
+		
+		try{
+			Thread.sleep(3000);
+		}
+		catch(Exception e){
+		}
+			
+		th1.resume();
+		System.out.println("Main thread is finishing its work");
+	}
+}
+
+
+
 Monitor locks releases
 ----------------------
 
