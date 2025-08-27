@@ -615,6 +615,72 @@ the problem is to make sure that the producer won't produce data if  the
 buffer is full, and the consumer won't consume data if the buffer is empty.
 
 
+public class SharedResource {
+    private Queue<Integer> sharedBuffer;
+    private int bufferSize;
+
+    public SharedResource(int bufferSize){
+        sharedBuffer=new LinkedList<>();
+        this.bufferSize=bufferSize;
+    }
+
+    public synchronized void produce(int item) throws  Exception{
+        //If Buffer is full,wait for the consumer to consume items
+        while (sharedBuffer.size()==bufferSize){
+            System.out.println("Buffer is full,Producer is waiting for consumer");
+            wait();
+        }
+        sharedBuffer.add(item);
+        System.out.println("Produced:"+item);
+        //Notify the consumer that there are items to consume now
+        notify();
+    }
+
+    public synchronized int consume() throws Exception{
+        //Buffer is empty,wait for the producer to produce items
+        while(sharedBuffer.isEmpty()){
+            System.out.println("Buffer is empty,Consumer is waiting for producer");
+            wait();
+        }
+        int item=sharedBuffer.poll();
+        System.out.println("Consumed:"+item);
+        //Notify the producer that there is space in the buffer now
+        notify();
+        return item;
+    }
+}
+
+
+public class ProducerConsumerLearning {
+
+    public static void main(String args[]){
+        SharedResource sharedBuffer=new SharedResource();
+
+        Thread producerThread=new Thread(()->{
+            try {
+                for (int i = 1; i <= 6; i++) {
+                sharedBuffer.produce(i);
+                }
+            } catch (Exception e) {
+                //handle exception here
+            }
+        });
+
+        Thread consumerThread = new Thread(() -> {
+            try {
+                for (int i = 1; i <= 6; i++) {
+                    sharedBuffer.consume();
+                }
+            } catch (Exception e) {
+                //handle exception here
+            }
+        });
+        producerThread.start();
+        consumerThread.start();
+    }
+}
+
+
 
 Monitor locks releases
 ----------------------
