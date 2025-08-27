@@ -963,7 +963,49 @@ public class Main{
 }
 
 
-Daemon thread:- it is supporting thread such as garbage collector in java,auto save of intellij editor
+Daemon thread:- it is supporting thread such as garbage collector in java,auto save of intellij editor,logging etc
+
+
+
+public class SharedResource{
+
+	boolean isAvailable=false;
+	
+	public synchronized void produce(){
+	
+	    System.out.println("Lock  acquired");
+		isAvailable=true;
+		try{
+		    Thread.sleep(8000);
+		}
+		catch(Exception e){
+			//handle some exception here
+		}
+		System.out.println("Lock release");
+	}
+}
+
+
+public class Main{
+
+	public static void main(String args[])
+	{
+	    SharedResource resource=new SharedResource();
+		
+		System.out.println("Main thread started");
+		
+		Thread th1=new Thread(()->{
+			System.out.println("Thread1 calling produce method");
+			resource.produce();
+		});
+		
+		
+		th1.setDaemon(true);
+		th1.start();
+	
+		System.out.println("Main thread is finishing its work");
+	}
+}
 
 
 
