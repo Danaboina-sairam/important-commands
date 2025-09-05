@@ -318,6 +318,17 @@ Terminated
 1.life thread is completed ,it can not be started back again.
 
 
+Class or Object level and method level Monitor lock
+---------------------------------------------------
+
+Method level Monitor lock
+-------------------------
+1.synchronized
+
+Class or Object level Monitor lock
+----------------------------------
+1.static with synchronized(used in method signature)
+
 
 
 Monitor lock on-------------->runnable state
