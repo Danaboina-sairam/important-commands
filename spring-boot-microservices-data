@@ -15,6 +15,9 @@ DI----------->Design pattern
 IOC---------->Principle
 
 
+IOC-------->ApplicationContext----------->Dependency Injection(it is automatically done by ApplicationContext)
+
+
 
 product-service:-getting details of product
 
