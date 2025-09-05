@@ -328,6 +328,8 @@ Method level Monitor lock
 -------------------------
 1.synchronized(With single object or multiple objects)
 
+Note:- each object has monitor lock
+
 Class or Object level Monitor lock
 ----------------------------------
 1.static with synchronized(used in method signature)
