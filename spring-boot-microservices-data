@@ -51,6 +51,10 @@ IOC-------->ApplicationContext----------->Dependency Injection(it is automatical
 
 
 
+IOC----->Dependency Injection,Bean Factory,Application Context
+
+
+
 product-service:-getting details of product
 
 order-service:-posting details of product
