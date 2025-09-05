@@ -345,6 +345,8 @@ Explicit locking
 
 3.StampedLock
 
+Note:- locks,notify(),wait() working on object created whatever shared resource(synchronized)
+
 
 
 Monitor lock on-------------->runnable state
