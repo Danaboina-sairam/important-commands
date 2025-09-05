@@ -345,7 +345,23 @@ Explicit locking
 
 3.StampedLock
 
-Note:- locks,notify(),wait() working on object created whatever shared resource(synchronized)
+Note:- 
+
+1.locks,notify(),wait() working on object created whatever shared resource(synchronized)
+
+flow of thread class
+--------------------
+
+ONE WAY
+-------
+
+1.Thread class object creation-->run method of runnable implemented class-->shared resource created by synchronized
+
+SECOND WAY
+-----------
+1.class that is extends by Thread class that contains run method--------->shared resource created by synchronized
+
+
 
 
 
