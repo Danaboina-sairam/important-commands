@@ -18,6 +18,38 @@ IOC---------->Principle
 IOC-------->ApplicationContext----------->Dependency Injection(it is automatically done by ApplicationContext)
 
 
+1. BeanFactory
+
+-Basic IoC container.
+
+-Provides only the fundamental features: create and manage beans.
+
+-Loads beans lazily → a bean is created only when requested (getBean()).
+
+-Lightweight, useful for resource-constrained environments.
+
+
+
+
+2. ApplicationContext
+
+-Advanced IoC container (extends BeanFactory).
+
+-Provides everything BeanFactory does plus many enterprise-level features:
+
+	1.Eager loading of beans (by default).
+
+	2.Event publishing (ApplicationEvent).
+
+	3.Internationalization (i18n).
+
+	4.AOP, declarative transactions.
+
+	5.Annotation-based configuration.
+
+	6.Used in almost all Spring applications.
+
+
 
 product-service:-getting details of product
 
