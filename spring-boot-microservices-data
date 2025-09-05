@@ -10,6 +10,10 @@ Creation → Dependency Injection → Initialization → Usage → Destruction
 
 Object creation,Object initialization,object usage,Object destruction
 
+DI----------->Design pattern
+
+IOC---------->Principle
+
 
 
 product-service:-getting details of product
