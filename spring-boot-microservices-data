@@ -1,3 +1,17 @@
+Controller->role of accepting client request in controller layer
+
+service->implementing business logic in the service layer
+
+repository->going to access the database in the repository layer
+
+
+Creation → Dependency Injection → Initialization → Usage → Destruction
+
+
+Object creation,Object initialization,object usage,Object destruction
+
+
+
 product-service:-getting details of product
 
 order-service:-posting details of product
