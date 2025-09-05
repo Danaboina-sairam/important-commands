@@ -328,7 +328,10 @@ Method level Monitor lock
 -------------------------
 1.synchronized(With single object or multiple objects)
 
-Note:- each object has monitor lock
+Note:- 
+1.each object has own monitor lock
+2.each object monitor lock not shared in between the objects
+
 
 Class or Object level Monitor lock
 ----------------------------------
