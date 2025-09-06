@@ -1105,6 +1105,17 @@ system design
 
 db locks
 
+types of locks
+--------------
+1.ReentrantLock
+
+2.ReadWriteLock
+
+3.StampedLock
+
+4.Semaphore Lock
+
+
 
 locks
 
