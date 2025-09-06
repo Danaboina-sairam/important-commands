@@ -767,6 +767,13 @@ Single
 stop()
 
 
+t1,t2,t3,t4,t5------------------->times
+
+Main------------------------->Main Thread
+
+T1,T2------------------------>user defined threads
+
+
 public class SharedResource{
 
 	boolean isAvailable=false;
