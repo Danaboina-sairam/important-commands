@@ -754,6 +754,18 @@ Both this operation could led to issues like deadlock.
 
 lets see an example of it
 
+combination
+-----------
+
+wait()---------------->notify(),notifyAll()
+
+suspend()------------->resume()
+
+Single
+------
+
+stop()
+
 
 public class SharedResource{
 
