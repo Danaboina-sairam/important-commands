@@ -666,6 +666,12 @@ Note:-
 1.here sharedBuffer and bufferSize both are different
 2.here LinkedList is unbounded but that is control by user defined bufferSize(bufferSize is user input)
 
+Note:- 
+
+1.locks,notify(),wait() working on object created whatever shared resource(synchronized)
+2.whatever thread is waiting on shared resource that is notified by notify()
+3.user wants to wait for the access of shared resource by thread by using wait()
+
 
 public class SharedResource {
     private Queue<Integer> sharedBuffer;
