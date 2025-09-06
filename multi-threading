@@ -348,6 +348,8 @@ Explicit locking
 Note:- 
 
 1.locks,notify(),wait() working on object created whatever shared resource(synchronized)
+2.whatever thread is waiting on shared resource that is notified by notify()
+3.user wants to wait for the access of shared resource by thread by using wait()
 
 flow of thread class
 --------------------
