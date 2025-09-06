@@ -662,6 +662,11 @@ the problem is to make sure that the producer won't produce data if  the
 buffer is full, and the consumer won't consume data if the buffer is empty.
 
 
+Note:-
+1.here sharedBuffer and bufferSize both are different
+2.here LinkedList is unbounded but that is control by user defined bufferSize(bufferSize is user input)
+
+
 public class SharedResource {
     private Queue<Integer> sharedBuffer;
     private int bufferSize;
