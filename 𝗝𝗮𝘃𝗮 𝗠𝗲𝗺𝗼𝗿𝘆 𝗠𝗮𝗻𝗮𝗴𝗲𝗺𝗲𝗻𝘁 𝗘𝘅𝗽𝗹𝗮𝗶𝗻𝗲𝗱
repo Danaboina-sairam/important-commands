@@ -1,0 +1,63 @@
+𝗝𝗮𝘃𝗮 𝗠𝗲𝗺𝗼𝗿𝘆 𝗠𝗮𝗻𝗮𝗴𝗲𝗺𝗲𝗻𝘁 𝗘𝘅𝗽𝗹𝗮𝗶𝗻𝗲𝗱 👇 
+When we write Java code, a lot happens behind the scenes in the JVM. Understanding memory flow helps us write efficient and scalable applications.
+
+Here’s a structured breakdown:
+🔹 1. Memory Areas in JVM
+When a Java program runs, JVM divides memory into different areas:
+1. Stack Memory
+Stores method calls, local variables, references to objects.
+Memory is allocated per thread (each thread has its own stack).
+2. Heap Memory (shared across all threads)
+Stores objects and class instances.
+Divided into:
+ 1. Young Generation → new objects, subdivided into:
+ a. Eden Space → where new objects are created.
+ b. Survivor (S0 & S1) → where objects survive GC cycles before moving to Old Gen.
+ 2. Old Generation (Tenured) → long-lived objects.
+ 3. Metaspace → stores class metadata, method info, runtime constant pool (replaced PermGen in Java 8+).
+
+🔹 2. String Pool
+Located inside the Heap (Method Area/Metaspace).
+Stores unique string literals for memory efficiency.
+Example:
+String s1 = "Hello";
+String s2 = "Hello"; 
+Sysout(s1 == s2); // true → both refer to same object
+If you use new String("Hello"), a new object is created in the heap, not in the pool.
+
+🔹 3. Constant Pool
+Part of Metaspace.
+Stores class-level constants (numbers, final values, method references, class names).
+Two types:
+Class Constant Pool (specific to each class).
+Runtime Constant Pool (RCP) → created when class is loaded at runtime.
+
+🔹 4. References in Java
+Objects in Heap are managed by references:
+Strong Reference → normal references (String s = "Hi";) → GC won’t remove until null.
+Soft Reference → eligible for GC only when memory is low.
+Weak Reference → GC removes as soon as no strong reference exists.
+
+🔹 5. GC Process
+GC runs automatically to free Heap memory:
+Mark Phase → Finds objects that are still reachable (via references).
+Sweep Phase → Removes objects not marked (unreachable).
+Compact Phase → Rearranges remaining objects to avoid memory fragmentation.
+Example:
+String s = new String("Java");
+s = null; // "Java" object becomes unreachable → GC cleans it
+
+🔹 6. Types of GCs
+Serial GC → Single-threaded, simple.
+Parallel GC → Multi-threaded, good for throughput.
+CMS (Concurrent Mark-Sweep) → Reduces pause time, works alongside app.
+G1 GC (Garbage First) → Splits Heap into regions, balances pause & throughput.
+
+𝗛𝗼𝘄 𝗶𝘁 𝗮𝗹𝗹 𝘄𝗼𝗿𝗸𝘀 𝘁𝗼𝗴𝗲𝘁𝗵𝗲𝗿
+Code executes → JVM loads classes into Metaspace.
+Objects are created in Heap (Eden space).
+References to these objects are stored in Stack.
+If an object survives multiple GC cycles → moved to Old Generation.
+String literals go into String Pool (inside Heap).
+Constants are stored in the Constant Pool (Metaspace).
+GC cleans unused heap objects automatically.
