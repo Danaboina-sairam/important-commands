@@ -1,0 +1,63 @@
+20 SENIOR BACKEND ARCHITECT QUESTIONS FOR 35+ LPA POSITIONS
+
+
+𝗕𝗮𝗰𝗸𝗲𝗻𝗱 𝗔𝗿𝗰𝗵𝗶𝘁𝗲𝗰𝘁𝘂𝗿𝗲 & 𝗦𝘆𝘀𝘁𝗲𝗺 𝗗𝗲𝘀𝗶𝗴𝗻
+1. How do you design a highly available and fault-tolerant microservices architecture?
+2. Explain the trade-offs between monolith, microservices, and modular monolith approaches.
+3. How do you ensure data consistency across distributed services (eventual vs. strong consistency)?
+4. What’s your strategy for handling API versioning in large-scale systems?
+
+𝗦𝗰𝗮𝗹𝗮𝗯𝗶𝗹𝗶𝘁𝘆, 𝗣𝗲𝗿𝗳𝗼𝗿𝗺𝗮𝗻𝗰𝗲 & 𝗥𝗲𝗹𝗶𝗮𝗯𝗶𝗹𝗶𝘁𝘆
+5. How do you design a system that handles millions of requests per second?
+6. What caching strategies do you use (CDN, Redis, database caching) to optimize performance?
+7. How do you handle database sharding and replication for high scalability?
+8. Explain your approach to rate limiting and throttling in large systems.
+
+𝗗𝗮𝘁𝗮 𝗠𝗮𝗻𝗮𝗴𝗲𝗺𝗲𝗻𝘁 & 𝗦𝘁𝗼𝗿𝗮𝗴𝗲
+9. How do you decide between SQL vs NoSQL for different services?
+10. Explain your strategy for implementing event-driven architectures with Kafka/RabbitMQ.
+11. How do you design for idempotency and exactly-once processing in message queues?
+12. What’s your approach to handling distributed transactions and sagas?
+
+𝗦𝗲𝗰𝘂𝗿𝗶𝘁𝘆 & 𝗢𝗯𝘀𝗲𝗿𝘃𝗮𝗯𝗶𝗹𝗶𝘁𝘆
+13. How do you secure APIs against OWASP Top 10 vulnerabilities?
+14. What’s your approach to secrets management and secure service-to-service communication?
+15. How do you design centralized logging, monitoring, and alerting for backend services?
+16. Explain your strategy for implementing zero-downtime deployments and rollbacks.
+
+𝗧𝗲𝗮𝗺 𝗟𝗲𝗮𝗱𝗲𝗿𝘀𝗵𝗶𝗽 & 𝗖𝗼𝗱𝗲 𝗤𝘂𝗮𝗹𝗶𝘁𝘆
+17. How do you enforce coding standards and ensure code quality across backend teams?
+18. What’s your approach to managing technical debt in large backend codebases?
+19. How do you mentor backend engineers and scale a high-performing team?
+20. Explain your strategy for migrating a legacy monolith to a modern microservices architecture.20 SENIOR BACKEND ARCHITECT QUESTIONS FOR 35+ LPA POSITIONS
+
+
+𝗕𝗮𝗰𝗸𝗲𝗻𝗱 𝗔𝗿𝗰𝗵𝗶𝘁𝗲𝗰𝘁𝘂𝗿𝗲 & 𝗦𝘆𝘀𝘁𝗲𝗺 𝗗𝗲𝘀𝗶𝗴𝗻
+1. How do you design a highly available and fault-tolerant microservices architecture?
+2. Explain the trade-offs between monolith, microservices, and modular monolith approaches.
+3. How do you ensure data consistency across distributed services (eventual vs. strong consistency)?
+4. What’s your strategy for handling API versioning in large-scale systems?
+
+𝗦𝗰𝗮𝗹𝗮𝗯𝗶𝗹𝗶𝘁𝘆, 𝗣𝗲𝗿𝗳𝗼𝗿𝗺𝗮𝗻𝗰𝗲 & 𝗥𝗲𝗹𝗶𝗮𝗯𝗶𝗹𝗶𝘁𝘆
+5. How do you design a system that handles millions of requests per second?
+6. What caching strategies do you use (CDN, Redis, database caching) to optimize performance?
+7. How do you handle database sharding and replication for high scalability?
+8. Explain your approach to rate limiting and throttling in large systems.
+
+𝗗𝗮𝘁𝗮 𝗠𝗮𝗻𝗮𝗴𝗲𝗺𝗲𝗻𝘁 & 𝗦𝘁𝗼𝗿𝗮𝗴𝗲
+9. How do you decide between SQL vs NoSQL for different services?
+10. Explain your strategy for implementing event-driven architectures with Kafka/RabbitMQ.
+11. How do you design for idempotency and exactly-once processing in message queues?
+12. What’s your approach to handling distributed transactions and sagas?
+
+𝗦𝗲𝗰𝘂𝗿𝗶𝘁𝘆 & 𝗢𝗯𝘀𝗲𝗿𝘃𝗮𝗯𝗶𝗹𝗶𝘁𝘆
+13. How do you secure APIs against OWASP Top 10 vulnerabilities?
+14. What’s your approach to secrets management and secure service-to-service communication?
+15. How do you design centralized logging, monitoring, and alerting for backend services?
+16. Explain your strategy for implementing zero-downtime deployments and rollbacks.
+
+𝗧𝗲𝗮𝗺 𝗟𝗲𝗮𝗱𝗲𝗿𝘀𝗵𝗶𝗽 & 𝗖𝗼𝗱𝗲 𝗤𝘂𝗮𝗹𝗶𝘁𝘆
+17. How do you enforce coding standards and ensure code quality across backend teams?
+18. What’s your approach to managing technical debt in large backend codebases?
+19. How do you mentor backend engineers and scale a high-performing team?
+20. Explain your strategy for migrating a legacy monolith to a modern microservices architecture.
