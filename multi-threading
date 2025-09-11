@@ -1508,6 +1508,99 @@ public class Main{
 
 
 
+
+
+
+try{
+Thread.sleep(3000);
+}
+catch(Exception e)
+{
+}
+
+above code used to sleep which thread in the code(producer and consumer problem)
+
+Daemon thread:-something which is running in async manner
+
+
+
+locking:- this is not depend on the object 
+
+ReentrantLock
+-------------
+
+lock()
+
+unlock()
+
+ReentrantReadWriteLock
+----------------------
+
+ReadLock:-more than 1 thread can acquire the read lock
+
+WriteLock:-only 1 thread can acquire the write lock.
+
+
+readLock().lock()
+
+readLock().unlock()
+
+writeLock.lock()
+writeLock.unlock()
+
+Note:- 
+
+1.we can create lock object in sharedResource class
+
+2.we can pass from whereever threads created that also fine
+
+
+StampedLock
+-----------
+
+readLock()
+
+unlockRead(stamp)
+
+writeLock()
+
+unlockWrite(stamp)
+
+Note:-
+
+1.stamp argument whatever reference created for readLock() and writeLock()
+
+
+
+StampedLock with optimistic:-there is no unlocking
+---------------------------
+
+tryOptimisticRead()
+
+validate(stamp)
+
+note:-
+
+1.stamp argument whatever reference created for tryOptimisticRead()
+
+2.there is no unlocking in tryOptimisticRead()
+
+
+Semaphore
+---------
+acquire()
+
+release()
+
+Note:-
+
+try--------->lock placing area
+
+finally------>lock releasing area
+
+
+
+
 synchronized(monitor lock----------->wait and notify)
 
 
