@@ -23,6 +23,7 @@ NOTE:-
 
 2.JVM will create process
 
+
 Hierachy
 --------
 
@@ -40,6 +41,9 @@ Thread :-
 3.one process can have multiple threads
 4.when process is created,it start with 1 thread and that initial thread is 'main thread' from that we can create multiple
   threads to perform task concurrently.
+
+
+NOTE:- JVM own heap memory vs process own heap memory
 
 
 How much memory does process gets??
