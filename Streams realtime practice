@@ -1,0 +1,24 @@
+1.foreach:-perform action on each element
+2.max():-comparison start from first and second element  but there is no initial value
+3.partitionBy():-it takes predicate so return true or false(here we can able to do 2 parts. if we want to do more than 2 parts then we can proceed with groupingBy())
+4.sequntial stream():- each element processing in single thread manner
+5.parallel stream():- each element processing in multiple thread manner
+6.groupingBy():-single parameter(first parmeter is the key that is used to separate)
+7.groupiingBy():- 2 parameter(first parmeter is the key that is used to separate)
+8.joining():-it fetch each string from stream()
+9.char():- it returns only ascii values
+10.reduce():- Adding start with initial value with whatever present in array
+11.max(Integer.compare):-
+12.max(Integer.compareTo):-
+13.flatMap(List::Stream):- why flatMap() not convert to flatMap directly(why I am asking because we are retrieving by using List::Stream)
+14.teeing():-we can use 2 collector parallel on the same stream,then combine result in one
+15.collect--------->Collectors
+16.filter---------->Collections
+17.max------------->Comparator
+18.frequency(numbers,n):-here first parameter is the array and second parameter is the checking value
+19.mapToObj()
+20.mapToInt()
+21.indexOf and lastIndexOf():- using for non repeated character in string(actual and converted ascii character comparing here)
+22.sorted()
+23.sorted(Comparator.reverseOrder())
+24.sorted(Comparator.comparingInt())
