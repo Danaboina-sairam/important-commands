@@ -1,0 +1,17 @@
+1.message
+
+2.chat options
+
+3.prompt
+
+4.chat model
+
+5.chat response
+
+6.chat client
+
+7.fluent api
+
+
+prompt(ChatResponse,ChatOptions,)----------->chat model------------>ai api response
+
