@@ -6,7 +6,7 @@
 6.groupingBy():-single parameter(first parmeter is the key that is used to separate)
 7.groupiingBy():- 2 parameter(first parmeter is the key that is used to separate)
 8.joining():-it fetch each string from stream()
-9.char():- it returns only ascii values
+9.chars():- it returns only ascii values
 10.reduce():- Adding start with initial value with whatever present in array
 11.max(Integer.compare):-
 12.max(Integer.compareTo):-
