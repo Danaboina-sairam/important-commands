@@ -1,3 +1,31 @@
+1️⃣ Producers — They are the applications that send data (messages) to Kafka. Think of them as the message senders.
+
+2️⃣ Kafka Cluster — Kafka runs on a group of servers called brokers.
+ Each broker stores part of the data and handles requests from producers and consumers.
+
+3️⃣ Topics — Topics are like folders or categories where messages are stored. Producers send data to topics, not directly to consumers.
+
+4️⃣ Partitions — Each topic is divided into smaller parts called partitions. This helps Kafka scale and process data in parallel.
+
+5️⃣ Brokers — Each broker stores one or more partitions.
+ By splitting data across brokers, Kafka achieves high performance and fault tolerance.
+
+6️⃣ Zookeeper — It helps manage and coordinate the Kafka cluster (like tracking which broker is active).
+ (In newer versions, this is replaced by KRaft mode.)
+
+7️⃣ Consumers — They are the applications that read data from Kafka topics. Consumers get messages and process them as needed.
+
+8️⃣ Consumer Groups — Multiple consumers can work together in a group.
+ Each partition in a topic is read by only one consumer in that group — avoiding duplicate reads.
+
+9️⃣ Offsets — Kafka remembers which messages a consumer has read using offsets. This ensures consumers can resume from where they stopped.
+
+
+
+
+
+
+
 Normal flow: we need to aware of other system request and response(data structure)
 
 1.topic
