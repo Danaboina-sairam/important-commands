@@ -1,0 +1,175 @@
+abstraction achieve 2 ways
+
+1.interface 
+
+->we are unable to create instance of interface but we can assign object of concreate class to interface reference
+->interface contains abstract, default(default and normal methods both are different), static methods
+->interface can able to implement any no of times.
+
+2.abstract class
+
+->we are unable to create instance of abstract class but we can assign object of concreate class to abstract class reference
+->abstract class contains abstract, static, normal methods(default and normal methods both are different)
+->class can able to extend only once that is also immediate concreate sub class
+
+
+
+
+super class:- class through which sub class class derived is called super class
+
+sub class:-class that is derived from another class is called sub class
+
+NOTE:- in java,in the absence of any other explict super class, every class implicitly a subclass of object class
+
+
+
+
+Nested class
+
+1.static nested class
+
+outer class static methods
+-------------------------- 
+
+ClassName.methodName();
+
+static nested class(default, private, protected, public)
+-------------------
+
+OuterClass.NestedClass nestedObject=new OuterClass.NestedClass();
+
+nestedObject.print();
+
+
+
+
+
+
+
+
+2.non static nested class/inner class(inheritance in non static nested class/inner class)
+
+->local inner class(instance block or any conditional block)
+
+NOTE:- object creation at local inner class separately and parent class separately
+
+
+
+->member inner class(direct class inside the parent class/member is nothing but direct class inside the parent class)
+
+
+OuterClass outerClassObj=new OuterClass();
+
+OuterClass.InnerClass innerClassObj=outerClassObj.new InnerClass();
+
+innerClassObj.print()
+
+
+->anonymous inner class(without extending class or without creating class we can able to provide implementation at time of object creation)
+
+
+
+
+
+
+Stack Memory:-
+------------
+
+->store temporary variables and separate memory block for methods
+->store primitive data types
+->store reference of the heap objects
+1.strong reference
+2.weak reference
+    
+2.1.soft reference
+
+->each thread has its own stack memory.
+->variables within a SCOPE is only visible and as soon as any variable goes out of the SCOPE, it get deleted from the stack(in LIFO order)
+->when stack memory goes full, its throws "java.lang.StackOverflowError"
+
+
+Heap Memory:-
+-----------
+
+->store objects
+->there is no order of allocating the memory
+->garbage collector is used to delete the unreferenced objects from the heap.
+1.mark and sweep algorithm
+2.types of GC:
+->single GC(serial GC)
+->parallel GC(default java 8)
+->CMS(concurrent mark sweep)
+->G1
+
+
+
+->heap memory is shared with all the threads
+->heap also contains the string pool
+->when heap memory goes full, its throws "java.lang.OutofMemoryError"
+->heap memory is further divided into:
+
+1.Young generation(minor GC happens here)
+->Eden
+->Survivor(s0,s1)
+2.old/tenured generation(major GC happens here)
+3.permanent generation(before java 7) / metaspace
+
+
+
+
+
+
+
+
+
+
+Test blocks used for storing json object in string format
+
+Pattern matching for instanceof
+
+We can able to create reference for object and interface
+
+Record
+
+Automatic -canonical constructor
+
+Compact constructor
+
+Local record can't declare with public, private, protected
+
+Lombok is external dependency
+
+Record is java feature, so it can restrict add setter method
+
+Also provide accessor method nothing but getter method like name()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+singleton 
+
+hashmap
+
+java memory model
+
+solid principles
+
+
+
