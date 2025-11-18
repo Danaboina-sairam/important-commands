@@ -88,6 +88,11 @@ Stack Memory:-
 ->when stack memory goes full, its throws "java.lang.StackOverflowError"
 
 
+NOTE:-
+
+SCOPE or FRAME( local variable array, frame data, operand stack)
+
+
 Heap Memory:-
 -----------
 
@@ -142,6 +147,141 @@ Lombok is external dependency
 Record is java feature, so it can restrict add setter method
 
 Also provide accessor method nothing but getter method like name()
+
+
+class loader
+------------
+
+Loading
+-------
+
+Bootstrap class loader---->java standard library( java.lang or java.util)--->JAVA_HOME/JRE/LIB----->JDK/JRE/LIB(rt.jar)
+
+extension class loader---->java extension library( javax.* or javax.jakarta)--->JAVA_HOME/JRE/LIB/EXT----->JDK/JRE/LIB/EXT
+
+application class loader--->java application specific classes loads from classpath (environment variables)
+
+
+Linking
+-------
+
+verification(is byte code generated from valid compiler or not, is there any virus or not)
+
+preparation(initialize with default values for static variables)
+
+resolution(symbolic references replace with original references)
+
+Initialization
+--------------
+
+static variables
+
+static blocks
+
+
+JVM Runtime Data Areas
+
+method area:-
+1.stores class-level data like method code, constants and metadata. this is where class definitions are kept after loading.
+
+heap area:-
+1.stores all objects and their associated instance variables.
+2.the jvm allocated memory for object instances in this area during runtime.
+3.all static variables allocated memory in heap area
+
+stack area:-
+1.each thread in java gets its own stack. it stores local variables, method calls and partial results for method execution.
+2.every time a method is invoked, a stack frame is created to store the data for that specific call.
+
+program counter(pc) register:-
+1.each thread has its own PC register. this register keeps track of the address of the next instruction to be executed in the thread's method.
+
+Native method stack:-
+1.stores native code(written in languages like c or c++) that java programs can interact with.
+2.for example, when java calls system-level operations that are outside the scope of the JVM, native methods are used.
+
+
+
+
+execution engine
+
+the execution engine is responsible for running the java code. it reads the bytecode and performs the necessary operations. the execution engine is made up of two key components:
+
+1.Interpreter:
+
+->the interpreter reads the bytecode line-by-line and executed it.
+->pros: simple to implement.
+->cons: slower execution because it executes each instruction individually.
+
+2.JIT compiler(just-in-time compiler):
+
+1.the JIT compiler compiles the bytecode into native machine code for faster execution.
+2.it identifies frequent code paths(called hotspots)and converts them into optimized machine code. this helps reduce the time spent interpreting frequently used method.
+
+Garbage collection(GC)
+
+Garbage collection is a process by which the JVM automatically frees up memory by reclaiming memory used by objects that are no longer referenced.
+
+->the garbage collector scans the heap and removes objects that are no longer needed, ensuring that the JVM doesn't run out of memory.
+
+Handling Native code:-
+sometimes, you may need to execute code that is not written in java(e.g.., c/c++). JVM allows this through the java native interface(JNI), which allows java to interact with native code written in languages like c or c++
+
+
+
+
+JAR(Java archive):-group of .class files
+
+
+WAR(Web archive):- group of xml, html, css, js, jsp, servlet etc
+
+EAR(enterprise archive):- EJB,JMS along with jar and war files
+
+
+
+path:- it is looking for binary files(jdk/bin)
+
+classpath:- it is looking for bytecode files(.class files)
+
+
+
+interface
+---------
+1.if we don't know anything about implementation just we have requirement specification then we should go for interface.
+2.inside interface every method is always public and abstract whether we are declaring or not. hence interface is also considered as 100% pure abstract class.
+3.we can't declare interface method with the following modifiers.
+
+public--->private(private allowing on java 9), protected
+
+abstract--->final, static(static allowing on java 8),default(default allowing on java 8), synchronized, native, strictfp
+
+4.every variable present inside interface is always public, static and final whether we are declaring or not.
+
+5.we can't declare interface variables with the following modifiers. private, protected, transient, volatile.
+
+6.for interface variables compulsory we should perforn initialization at the time of declaration otherwise we will get compile time error.
+7.inside interface we can't declare instance and static blocks otherwise we will get compile time error.
+
+8.inside interface we can't declare constructors.
+
+
+
+
+
+
+
+
+abstract class
+--------------
+1.if we are talking about implementation but not completely(partial implementation) then we should go for abstract class.
+2.every method present in abstract class need not be public and abstract. in addition to abstract methods we can take concreate methods also.
+3.there are no restrictions on abstract class method modifiers.
+4.the variables present inside abstract class need not be public, static and final
+5.there are no restrictions on abstract class variable modifiers.
+6.for abstract class variables it is not required to perform initialization at the time of declaration.
+7.inside abstract class we can declare instance and static blocks.
+8.inside abstract class we can declare constructor, which will be executed at the time fo child object creation.
+
 
 
 
