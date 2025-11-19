@@ -520,3 +520,40 @@ All HashMap rules (hashing, buckets, collisions) apply underneath
 
 
 
+
+
+HashMap-------->for comparision equals() used
+
+IdentityHashMap-------->for comparision == reference operator used
+
+
+HashSet and HashMap---------->default capacity 16(Load factor---->0.75)
+
+HashTable------>default capacity 11(Load factor---->0.75)
+
+
+
+
+If (bucket_length >= 8 AND table_capacity >= 64)
+        → Convert LinkedList to Red-Black Tree
+Else
+        → Resize table (grow array)
+
+
+
+
+
+
+If tree nodes in a bucket drop to ≤ 6, it converts back to a linked list.
+
+
+
+
+
+
+
+
+
+
+
+
