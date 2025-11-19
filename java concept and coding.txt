@@ -286,6 +286,109 @@ abstract class
 
 
 
+inversion of control
+
+
+we are not control the object creation and life cycle of bean but someone creating and control of life cycle of bean
+
+
+
+collection interface------->value 
+
+
+map interface------->key, value pairs
+
+
+
+HashSet--->HashMap
+
+LinkedHashSet--->LinkedHashMap
+
+TreeSet--->TreeMap
+
+
+
+1.Load factor
+2.Entry<K,V> interface
+3.re-hashing
+4.performance
+
+
+
+
+
+
+Map<>
+
+Entry<>
+
+
+
+
+
+hash 
+
+key 
+
+value 
+
+next
+
+
+
+
+
+hashcode % current size of the hashmap
+
+
+
+
+
+collision time(same bucket index insertion time only collision happening)
+
+Note:-first insertion based on the hashcode but same hashcode for the 2 keys then use the equals method for the keys if key already exists or not
+
+
+
+1.same key already exists then replace value for the key 
+
+2.same key not exists then create the new node 
+
+
+Insertion time
+
+1.hashcode
+
+2.equals():-it is used to check replace existing node or add new node
+
+
+Retrieval time
+
+1.hashcode
+
+2.equals():- if multiple node are present in the bucket then check key is present or not
+
+
+
+
+1.LoadFactor(0.75------>12)
+
+2.Treefy Threashold
+
+
+
+contract
+
+
+1.if object1 == object2 then their hashcode should be same also
+
+2.if 2 objects hashcode is same doesn't mean 2 objects are equal
+
+
+
+Average---->O(1)
+
+worst case---->O(n)
 
 
 
@@ -310,6 +413,110 @@ hashmap
 java memory model
 
 solid principles
+
+How HashSet Works Internally in Java?
+
+
+Most of us use HashSet to store unique values.
+But inside, it works very closely with HashMap.
+Here’s the simple version 👇
+
+1️⃣ HashSet internally uses a HashMap
+HashSet is basically a wrapper around HashMap.
+Everything you add in a HashSet becomes a key inside an internal HashMap.
+
+private transient HashMap<E,Object> map;
+private static final Object PRESENT = new Object();
+
+The value stored in the HashMap is just a dummy object called PRESENT.
+
+
+---
+
+2️⃣ When you call add(value)
+HashSet actually does:
+
+map.put(value, PRESENT);
+
+So the full HashMap internal logic applies:
+hashing → bucket selection → equals() → collision handling, etc.
+
+
+---
+
+3️⃣ How duplicates are handled
+If you add the same element again:
+
+HashMap checks the bucket using hashCode()
+
+Then calls equals() to compare keys
+
+Since the key already exists, HashMap does not replace it, because the value (PRESENT) is the same
+
+HashSet simply ignores the duplicate
+
+add() returns false
+
+The set remains unchanged
+
+
+➡️ Unlike HashMap, where the value gets replaced for duplicate keys.
+
+
+---
+
+4️⃣ Collision handling
+Same behavior as HashMap:
+
+First a linked list inside the bucket
+
+If a bucket grows to 8 or more elements (and capacity ≥ 64), it converts into a Red-Black Tree for faster lookup
+
+If elements reduce later, it may convert back into a list
+
+
+
+---
+
+5️⃣ Iteration
+When you loop through a HashSet:
+
+for (E e : set) { ... }
+
+You’re actually iterating through the keys of the internal HashMap.
+
+
+---
+
+6️⃣ Null handling
+HashSet allows one null value, because HashMap allows one null key.
+It is stored in bucket 0.
+
+
+---
+
+7️⃣ Time complexity
+
+Average insert / search / delete → O(1)
+
+Worst case → O(log n) (tree), or O(n) (linked list)
+
+
+
+---
+
+💡 In short:
+
+HashSet uses HashMap internally
+
+Your element becomes the key
+
+A dummy object becomes the value
+
+Duplicates are ignored, not overwritten
+
+All HashMap rules (hashing, buckets, collisions) apply underneath
+
 
 
 
